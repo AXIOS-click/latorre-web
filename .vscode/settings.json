@@ -1,0 +1,4 @@
+{
+    "eslint.workingDirectories": ["pages", "/pages", "./pages"],
+    "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"]
+}

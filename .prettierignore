@@ -1,0 +1,11 @@
+# Ignore artifacts:
+build
+coverage
+.idea
+.scannerwork
+.gitignore
+**.svg
+.prettierignore
+**.png
+**.jpg
+**.jpeg
