@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+set +e
+echo -e "\e[36m[Automated]\e[0m Running pre-commit hook"
+echo -e "\e[36m[Automated]\e[0m Stylelinting files"
+
+npx npx lint-staged --concurrent=false
+
+if [ $? -ne 0 ]; then
+  echo -e "\e[31m[Automated]\e[0m Stylelinting failed 💀"
+  exit 1
+fi

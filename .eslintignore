@@ -1,0 +1,8 @@
+node_modules
+build
+.husky
+.idea
+.scannerwork
+.eslintignore
+.eslintrc.json
+next.config.mjs
