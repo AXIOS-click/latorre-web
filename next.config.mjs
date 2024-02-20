@@ -7,6 +7,9 @@ const nextConfig = {
     sassOptions: {
         includePaths: [path.join(process.cwd(), "styles")],
     },
+    eslint: {
+        dirs: ["src"],
+    },
 };
 
 export default nextConfig;

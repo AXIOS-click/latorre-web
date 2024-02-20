@@ -4,9 +4,9 @@
         "browser": true,
         "es2021": true
     },
-    "extends": "next/core-web-vitals",
+    "extends": "next",
     "parser": "@typescript-eslint/parser",
-    "plugins": ["jsx-a11y", "@typescript-eslint", "prettier"],
+    "plugins": ["jsx-a11y", "@typescript-eslint", "prettier", "plugin:@next/next/recommended"],
     "rules": {
         "no-unused-vars": "off",
         "@typescript-eslint/explicit-function-return-type": "off",
@@ -32,6 +32,11 @@
         "no-multi-spaces": "error",
         "comma-spacing": ["error", { "before": false, "after": true }],
         "no-console": ["warn", { "allow": ["warn", "error"] }]
+    },
+    "settings": {
+        "next": {
+            "rootDir": "src/"
+        }
     },
     "ignorePatterns": ["**/*.html", "next.config.mjs", ".eslintrc.json"]
 }
