@@ -20,7 +20,8 @@
         "next": "14.1.0",
         "npm": "^10.4.0",
         "react": "^18",
-        "react-dom": "^18"
+        "react-dom": "^18",
+        "sass": "^1.71.0"
     },
     "devDependencies": {
         "@types/node": "^20.11.19",
@@ -39,6 +40,7 @@
         "eslint-plugin-react": "^7.33.2",
         "husky": "^9.0.10",
         "lint-staged": "^15.2.2",
+        "postcss": "^8.4.35",
         "prettier": "^3.2.5",
         "typescript": "*"
     },
