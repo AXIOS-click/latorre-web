@@ -1,6 +1,6 @@
-const Navbar = () => {
+export const Navbar = () => {
     return (
-        <header className="w-full h-14 bg-[#ff0000] fixed animate-navbar">
+        <header className="w-full h-14 bg-latorre-red fixed animate-navbar">
             <nav className="w-full h-full flex justify-between items-center px-6">
                 <span className="text-white">Logo</span>
                 <ul className="flex gap-5 items-center text-white">
@@ -21,5 +21,3 @@ const Navbar = () => {
         </header>
     );
 };
-
-export default Navbar;
