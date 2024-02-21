@@ -7,7 +7,7 @@ export const OpenHomeAnimation = () => {
 
     return (
         <div
-            className={`${animationEnded ? "scale-up-center" : "scale-out-center"} flex items-center justify-center`}
+            className={`${animationEnded ? "hidden" : "scale-out-center"}`}
             onAnimationEnd={() => setAnimationEnded(!animationEnded)}
         ></div>
     );

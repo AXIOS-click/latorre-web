@@ -4,6 +4,7 @@
     background-color: red;
     width: 100vw;
     height: 100vh;
+    position: absolute;
 }
 
 @keyframes scale-out-center {
@@ -14,7 +15,16 @@
     }
     100% {
         opacity: 1;
-        width: 300px;
-        height: 500px;
+        width: 0;
+        height: 0;
     }
+}
+
+.petry_home{
+    position: absolute;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }

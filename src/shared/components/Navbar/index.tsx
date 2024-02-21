@@ -5,7 +5,7 @@ export const Navbar = () => {
                 <span className="text-white">Logo</span>
                 <ul className="flex gap-5 items-center text-white">
                     <li>
-                        <a>Proyecto</a>
+                        <a>Proyectos</a>
                     </li>
                     <li>
                         <a>Biografia</a>
