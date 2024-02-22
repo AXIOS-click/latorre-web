@@ -1,7 +1,7 @@
 .scale-out-center {
     -webkit-animation: scale-out-center 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) 2s both;
     animation: scale-out-center 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) 2s both;
-    background-color: red;
+    background-color: var(--latorre-red);
     width: 100vw;
     height: 100vh;
     position: absolute;

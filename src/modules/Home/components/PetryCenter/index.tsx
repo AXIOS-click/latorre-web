@@ -9,8 +9,9 @@ const PetryCenter = () => {
         <Image
             src={PetryTemporal}
             alt="Pintura Petry"
-            height={450}
-            width={450}
+            width={384}
+            height={384}
+            priority
             className={`${animationEndend ? "petry_center" : "scale-down-center"}`}
             onAnimationEnd={() => setAnimationEndend(!animationEndend)}
         />

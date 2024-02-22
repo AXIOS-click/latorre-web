@@ -1,6 +1,5 @@
 import { Inter } from "next/font/google";
 import "../styles/globals.scss";
-import { Navbar } from "@/shared/components/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,7 +12,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     return (
         <html lang="en">
             <body className={`${inter.className}`}>
-                <Navbar />
                 {children}
             </body>
         </html>
