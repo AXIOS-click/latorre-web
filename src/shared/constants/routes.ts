@@ -6,8 +6,10 @@ export enum ERoutes {
     CONTACTO = "/contacto",
 }
 
+export type TActualRoutes = "Home" | "Proyectos" | "Biografia" | "Redes" | "Contacto";
+
 export interface IRoute {
-    name: string;
+    name: TActualRoutes;
     path: string;
 }
 

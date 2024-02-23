@@ -1,5 +1,4 @@
 "use client";
-import { BurgerMenu } from "@/assets/images/imageProvider";
 import { ERoutes, IRoute } from "@/shared/constants/routes";
 import { useRouteHelper } from "@/shared/shared/useRouteHelper";
 import { useTimer } from "@/shared/shared/useTimer";
