@@ -2,44 +2,18 @@
 import { BurgerMenu } from "@/assets/images/imageProvider";
 import { ERoutes, IRoute } from "@/shared/constants/routes";
 import { useRouteHelper } from "@/shared/shared/useRouteHelper";
-import Image from "next/image";
+import { useTimer } from "@/shared/shared/useTimer";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 
 export const Navbar = () => {
-    const [isInactive, setIsInactive] = useState(false);
     const [burgerMenu, setBurgerMenu] = useState(false);
-    const timerRef = useRef<NodeJS.Timeout | null>(null);
 
     const { getRoutesExcluding, getCurrentRoute } = useRouteHelper();
 
     const navbarRoutes = getRoutesExcluding([ERoutes.HOME]);
 
-    const resetTimer = () => {
-        if (timerRef.current) {
-            clearTimeout(timerRef.current);
-        }
-        timerRef.current = setTimeout(() => {
-            setIsInactive(true);
-        }, 8000);
-    };
-
-    useEffect(() => {
-        resetTimer();
-
-        const handleDocumentClick = () => {
-            resetTimer();
-        };
-
-        document.addEventListener("click", handleDocumentClick);
-
-        return () => {
-            if (timerRef.current) {
-                clearTimeout(timerRef.current);
-            }
-            document.removeEventListener("click", handleDocumentClick);
-        };
-    }, []);
+    const { isInactive } = useTimer(8000);
 
     const validateHomeAndInactivity = (mapRoute: IRoute, index: number) => {
         const isHomeAndProyectos = getCurrentRoute()?.name === "Home" && mapRoute.name === "Proyectos";
