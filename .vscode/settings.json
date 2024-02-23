@@ -1,5 +1,4 @@
 {
-    "eslint.workingDirectories": ["src", "./src", "src/**", "./src/**"],
-    "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+    "eslint.validate": ["typescript", "typescriptreact"],
     "css.customData": [".vscode/tailwind.json"]
 }

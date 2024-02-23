@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "../modules/Home/index.scss";
+@import "../shared/components/index.scss";
+
+@layer base {
+    :root {
+        --latorre-red: #ff0000;
+    }
+}
+

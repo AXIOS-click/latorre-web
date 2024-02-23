@@ -1,3 +1,5 @@
+import { HomeModule } from "@/modules/Home";
+
 export default function Home() {
-    return <p className="text-red-600">Holas</p>;
+    return <HomeModule />;
 }
