@@ -1,7 +1,7 @@
 import React from "react";
 import { OpenHomeAnimation } from "./components/OpenHome";
 import PetryCenter from "./components/PetryCenter";
-import { Navbar } from "./components/Navbar";
+import { Navbar } from "../../shared/components/Navbar";
 
 export const HomeModule = () => {
     return (
