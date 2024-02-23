@@ -1,120 +1,90 @@
-.petry_center {
+$scale-transition: 0.5s ease-in-out;
+$scale-large: 2;
+$scale-medium: 1.5;
+$scale-normal: 1;
+$animation-duration: 1s;
+$animation-delay: 2s;
+$animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+.petry-center {
     z-index: 50;
-    transition: 0.5s;
+    transition: transform $scale-transition;
+    width: 384px;
     &:hover {
         transform: scale(1.03);
     }
 }
 
+.latorre {
+    width: 384px;
+}
+
 .scale-down-center {
-    -webkit-animation: scale-down-center 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)2s both;
-    animation: scale-down-center 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)2s both;
+    animation: scale-down-center $animation-duration $animation-timing-function $animation-delay both;
 }
 
 .fade-in {
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
+    transition: opacity $scale-transition;
 
-.fade-in.show {
-    opacity: 1;
-}
-
-@-webkit-keyframes scale-down-center {
-    0% {
-        -webkit-transform: scale(2);
-        transform: scale(2);
-    }
-
-    40% {
-        opacity: 0;
-    }
-
-    100% {
-        -webkit-transform: scale(1);
-        transform: scale(1);
-
+    &.show {
+        opacity: 1;
     }
 }
 
 @keyframes scale-down-center {
     0% {
-        -webkit-transform: scale(2);
-        transform: scale(2);
-    }
-
-    40% {
+        transform: scale($scale-large);
         opacity: 0;
     }
-
     100% {
-        -webkit-transform: scale(1);
-        transform: scale(1);
+        transform: scale($scale-normal);
     }
 }
 
 @media (min-width: 375px) {
-    .petry_center {
-        width: 70%;
+    .petry-center, .latorre {
+        width: 50%;
     }
 }
 
 @media (min-width: 768px) {
-    .petry_center {
-        width: 384px;
-    }
-
-    @-webkit-keyframes scale-down-center {
-        0% {
-            -webkit-transform: scale(1.5);
-            transform: scale(1.5);
-        }
-
-        100% {
-            -webkit-transform: scale(1);
-            transform: scale(1);
-        }
-    }
-
     @keyframes scale-down-center {
         0% {
-            -webkit-transform: scale(1.5);
-            transform: scale(1.5);
+            transform: scale($scale-medium);
         }
-
         100% {
-            -webkit-transform: scale(1);
-            transform: scale(1);
+            transform: scale($scale-normal);
         }
     }
 }
 
 @media (min-width: 1024px) {
-    .petry_center {
+    .petry-center, .latorre {
         width: 384px;
     }
-
-    @-webkit-keyframes scale-down-center {
-        0% {
-            -webkit-transform: scale(2);
-            transform: scale(2);
-        }
-
-        100% {
-            -webkit-transform: scale(1);
-            transform: scale(1);
-        }
-    }
-
-    @keyframes scale-down-center {
-        0% {
-            -webkit-transform: scale(2);
-            transform: scale(2);
-        }
-
-        100% {
-            -webkit-transform: scale(1);
-            transform: scale(1);
-        }
-    }
 }
+
+
+
+@keyframes heartbeat {
+    0% {
+      transform: scale(1);
+    }
+    14% {
+      transform: scale(1.02);
+    }
+    28% {
+      transform: scale(1);
+    }
+    42% {
+      transform: scale(1.04);
+    }
+    70% {
+      transform: scale(1);
+    }
+  }
+  
+  .heartbeat-effect {
+    animation: heartbeat 1.5s ease-in-out infinite;
+  }
