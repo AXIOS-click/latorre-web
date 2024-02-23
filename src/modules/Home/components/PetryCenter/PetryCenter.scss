@@ -1,12 +1,9 @@
 .petry_center {
-    position: absolute;
     z-index: 50;
-    cursor: pointer;
     transition: 0.5s;
-}
-
-.petry_center:hover {
-    transform: scale(1.1);
+    &:hover {
+        transform: scale(1.03);
+    }
 }
 
 .scale-down-center {
@@ -14,21 +11,42 @@
     animation: scale-down-center 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)2s both;
 }
 
+.fade-in {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.fade-in.show {
+    opacity: 1;
+}
+
 @-webkit-keyframes scale-down-center {
     0% {
         -webkit-transform: scale(2);
         transform: scale(2);
     }
+
+    40% {
+        opacity: 0;
+    }
+
     100% {
         -webkit-transform: scale(1);
         transform: scale(1);
+
     }
 }
+
 @keyframes scale-down-center {
     0% {
         -webkit-transform: scale(2);
         transform: scale(2);
     }
+
+    40% {
+        opacity: 0;
+    }
+
     100% {
         -webkit-transform: scale(1);
         transform: scale(1);
@@ -51,16 +69,19 @@
             -webkit-transform: scale(1.5);
             transform: scale(1.5);
         }
+
         100% {
             -webkit-transform: scale(1);
             transform: scale(1);
         }
     }
+
     @keyframes scale-down-center {
         0% {
             -webkit-transform: scale(1.5);
             transform: scale(1.5);
         }
+
         100% {
             -webkit-transform: scale(1);
             transform: scale(1);
@@ -78,16 +99,19 @@
             -webkit-transform: scale(2);
             transform: scale(2);
         }
+
         100% {
             -webkit-transform: scale(1);
             transform: scale(1);
         }
     }
+
     @keyframes scale-down-center {
         0% {
             -webkit-transform: scale(2);
             transform: scale(2);
         }
+
         100% {
             -webkit-transform: scale(1);
             transform: scale(1);
