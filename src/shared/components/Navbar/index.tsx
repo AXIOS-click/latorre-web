@@ -21,7 +21,7 @@ export const Navbar = () => {
         }
         timerRef.current = setTimeout(() => {
             setIsInactive(true);
-        }, 5000);
+        }, 8000);
     };
 
     useEffect(() => {
@@ -47,22 +47,24 @@ export const Navbar = () => {
 
         return (
             <li key={index} className={liClassName}>
-                <Link href={mapRoute.path}>{mapRoute.name}</Link>
+                <Link href={mapRoute.path} className="text-lg hover:text-xl transition-all">
+                    {mapRoute.name}
+                </Link>
             </li>
         );
     };
 
     return (
-        <nav className="border-gray-200 bg-latorre-red fixed top-0 w-full text-white animate-navbar">
-            <div className="max-w-screen-xl flex items-center justify-between mx-auto p-4">
+        <nav className="fixed top-0 w-full text-white animate-navbar">
+            <div className="max-w-screen-xl flex items-center justify-between mx-auto py-6">
                 <div className="flex justify-between w-full">
                     <div className={`${burgerMenu ? "scale-up-tr" : "hidden"} md:flex`}>
-                        <ul className="flex flex-col md:flex-row gap-4">
+                        <ul className="flex flex-col md:flex-row gap-4 items-center">
                             {navbarRoutes.slice(0, 2).map((route, index) => validateHomeAndInactivity(route, index))}
                         </ul>
                     </div>
                     <div className={`${burgerMenu ? "scale-up-tr" : "hidden"} md:flex`}>
-                        <ul className="flex flex-col md:flex-row gap-4">
+                        <ul className="flex flex-col md:flex-row gap-4 items-center">
                             {navbarRoutes.slice(-2).map((route, index) => validateHomeAndInactivity(route, index))}
                         </ul>
                     </div>
