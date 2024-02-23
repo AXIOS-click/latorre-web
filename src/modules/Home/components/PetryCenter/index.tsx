@@ -21,17 +21,20 @@ const PetryCenter = () => {
 
     return (
         <div className="absolute w-full justify-center flex flex-col items-center justify-items-center">
+            <div className="petry-container">
+
             <Image
                 src={PetryTemporal}
                 alt="Pintura Petry"
                 width={384}
                 height={384}
                 priority
-                className={`${animationEnded ? "petry-center" : "scale-down-center"} ${hoverEffectActive ? "heartbeat-effect" : ""}`}
+                className={`${animationEnded ? "petry-center" : "scale-down-center"} ${hoverEffectActive && "heartbeat-effect"}`}
                 onAnimationEnd={() => setAnimationEnded(!animationEnded)}
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-            />
+                />
+                </div>
             <Image
                 src={Latorre}
                 alt="Pintura Petry"
