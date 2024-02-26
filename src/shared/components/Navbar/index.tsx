@@ -4,6 +4,7 @@ import { useRouteHelper } from "@/shared/hooks/useRouteHelper";
 import { useTimer } from "@/shared/hooks/useTimer";
 import Link from "next/link";
 import { useState } from "react";
+import { DropdownProyect } from "./DropdownProyect";
 
 export const Navbar = () => {
     const [burgerMenu, setBurgerMenu] = useState(false);
@@ -19,10 +20,14 @@ export const Navbar = () => {
         const liClassName = isHomeAndProyectos && isInactive ? "retroiluminado" : "";
 
         return (
-            <li key={index} className={liClassName}>
-                <Link href={mapRoute.path} className="text-lg hover:text-xl transition-all">
-                    {mapRoute.name}
-                </Link>
+            <li key={index}>
+                {isHomeAndProyectos ? (
+                    <DropdownProyect classNameProp={liClassName} />
+                ) : (
+                    <Link href={mapRoute.path} className="text-lg hover:text-xl transition-all">
+                        {mapRoute.name}
+                    </Link>
+                )}
             </li>
         );
     };
