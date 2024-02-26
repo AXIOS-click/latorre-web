@@ -21,13 +21,13 @@ export const DropdownProyect = ({ classNameProp }: { classNameProp: string }) =>
             <div className={` ${openDropdown ? "block" : "hidden"} z-50 p-2 absolute`}>
                 <Link
                     className="flex items-center py-2 px-3 rounded-md  hover:bg-latorre-red"
-                    href='/proyectos/esculturas'
+                    href='/proyects/sculture'
                 >
                     Esculturas
                 </Link>
                 <Link
                     className="flex items-center py-2 px-3 rounded-md   hover:bg-latorre-red"
-                    href='/proyectos/pinturas'
+                    href='/proyects/paintings'
                 >
                     Pinturas
                 </Link>
