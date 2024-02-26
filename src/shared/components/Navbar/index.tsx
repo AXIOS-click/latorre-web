@@ -1,7 +1,7 @@
 "use client";
 import { ERoutes, IRoute } from "@/shared/constants/routes";
-import { useRouteHelper } from "@/shared/shared/useRouteHelper";
-import { useTimer } from "@/shared/shared/useTimer";
+import { useRouteHelper } from "@/shared/hooks/useRouteHelper";
+import { useTimer } from "@/shared/hooks/useTimer";
 import Link from "next/link";
 import { useState } from "react";
 
