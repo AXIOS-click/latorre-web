@@ -60,12 +60,17 @@ export const Navbar = () => {
     };
 
     return (
-        <nav className="fixed top-0 w-full text-white animate-navbar mt-6">
+        <nav
+            className={`fixed top-0 w-full text-white mt-6 ${getCurrentRoute()?.name === "Home" ? "animate-navbar" : ""}`}
+        >
             <div className="max-w-screen-xl mx-auto py-6">
                 <div className="flex justify-between">
                     <div className={`flex ${burgerMenu ? "scale-up-tr" : "hidden"} md:flex`}>
                         <ul className="flex flex-col md:flex-row gap-4 items-center">
-                            {navbarRoutes.slice(0, 2).reverse().map((route, index) => renderNavbarItem(route, index))}
+                            {navbarRoutes
+                                .slice(0, 2)
+                                .reverse()
+                                .map((route, index) => renderNavbarItem(route, index))}
                         </ul>
                     </div>
                     <div className={`flex ${burgerMenu ? "scale-up-tr" : "hidden"} md:flex`}>
