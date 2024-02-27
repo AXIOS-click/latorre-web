@@ -24,7 +24,7 @@ export const Navbar = () => {
                 {isHomeAndProyectos ? (
                     <DropdownProyect classNameProp={liClassName} />
                 ) : (
-                    <Link href={mapRoute.path} className="text-lg hover:text-xl transition-all">
+                    <Link href={mapRoute.path} className="text-2xl hover:text-3xl transition-all">
                         {mapRoute.name}
                     </Link>
                 )}
@@ -33,12 +33,12 @@ export const Navbar = () => {
     };
 
     return (
-        <nav className="fixed top-0 w-full text-white animate-navbar">
+        <nav className="fixed top-0 w-full text-white animate-navbar mt-6">
             <div className="max-w-screen-xl flex items-center justify-between mx-auto py-6">
                 <div className="flex justify-between w-full">
                     <div className={`${burgerMenu ? "scale-up-tr" : "hidden"} md:flex`}>
                         <ul className="flex flex-col md:flex-row gap-4 items-center">
-                            {navbarRoutes.slice(0, 2).map((route, index) => validateHomeAndInactivity(route, index))}
+                            {navbarRoutes.slice(0, 2).reverse().map((route, index) => validateHomeAndInactivity(route, index))}
                         </ul>
                     </div>
                     <div className={`${burgerMenu ? "scale-up-tr" : "hidden"} md:flex`}>

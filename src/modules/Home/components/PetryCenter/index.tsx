@@ -49,7 +49,7 @@ const PetryCenter = () => {
                 alt="Pintura Petry"
                 width={384}
                 height={384}
-                className={`fade-in ${animationEnded && "show"} mt-3 latorre`}
+                className={`fade-in ${animationEnded && "show aparecer-desde-abajo"} mt-16 latorre`}
                 priority
             />
         </div>

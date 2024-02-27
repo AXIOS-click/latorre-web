@@ -6,7 +6,7 @@ export enum ERoutes {
     CONTACTO = "/contacto",
 }
 
-export type TActualRoutes = "Home" | "Proyectos" | "Biografia" | "Redes" | "Contacto";
+export type TActualRoutes = "Home" | "Proyectos" | "Bio" | "Redes" | "Contacto";
 
 export interface IRoute {
     name: TActualRoutes;
@@ -16,7 +16,7 @@ export interface IRoute {
 export const ROUTES: IRoute[] = [
     { name: "Home", path: ERoutes.HOME },
     { name: "Proyectos", path: ERoutes.PROYECTOS },
-    { name: "Biografia", path: ERoutes.BIOGRAFIA },
+    { name: "Bio", path: ERoutes.BIOGRAFIA },
     { name: "Redes", path: ERoutes.REDES },
     { name: "Contacto", path: ERoutes.CONTACTO },
 ];

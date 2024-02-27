@@ -17,7 +17,7 @@ $animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
         right: 0;
         bottom: 0;
         border-radius: 50%;
-        background-image: radial-gradient(circle at center, rgba(255, 255, 255, .2), rgba(255, 255, 255, 0) 29%);
+        background-image: radial-gradient(circle at center, rgba(255, 255, 255, .2), rgba(255, 255, 255, 0) 0%);
         pointer-events: none;
         // animation: heartbeat 1.5s ease-in-out infinite;
     }
@@ -46,6 +46,22 @@ $animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
     transition: opacity $scale-transition;
 
     &.show {
+        opacity: 1;
+    }
+
+    &.aparecer-desde-abajo {
+        animation: aparecer-desde-abajo 1s ease-in-out both;
+    }
+}
+
+@keyframes aparecer-desde-abajo {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
         opacity: 1;
     }
 }
