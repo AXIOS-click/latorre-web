@@ -5,8 +5,7 @@
         "es2021": true
     },
     "extends": ["next"],
-    "parser": "@typescript-eslint/parser",
-    "plugins": ["@typescript-eslint", "prettier", "react"],
+    "plugins": [ "prettier", "react"],
     "settings": {
         "react": {
             "version": "detect"
@@ -14,17 +13,7 @@
     },
     "rules": {
         "no-unused-vars": "off",
-        "@typescript-eslint/explicit-function-return-type": "off",
-        "@typescript-eslint/strict-boolean-expressions": "off",
-        "restrict-template-expressions": "off",
-        "@typescript-eslint/restrict-template-expressions": "off",
-        "@typescript-eslint/triple-slash-reference": "off",
-        "@typescript-eslint/prefer-nullish-coalescing": "off",
-        "@typescript-eslint/no-non-null-assertion": "off",
-        "@typescript-eslint/no-inferrable-types": "off",
-        "@typescript-eslint/no-unused-vars": ["error", { "varsIgnorePattern": "^_", "argsIgnorePattern": "^_" }],
-        "@typescript-eslint/no-explicit-any": ["error", { "fixToUnknown": true }],
-
+        
         "quotes": ["error", "double"],
         "curly": "error",
         "no-empty": "error",
