@@ -1,6 +1,8 @@
 import { Inter } from "next/font/google";
 import ReactQueryProvider from "@/shared/providers/ReactQueryProvider";
 import "../styles/globals.scss";
+import "@radix-ui/themes/styles.css";
+import { Theme } from "@radix-ui/themes";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,7 +15,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     return (
         <html lang="en">
             <body className={`${inter.className}`}>
-                <ReactQueryProvider>{children}</ReactQueryProvider>
+                <Theme>
+                    <ReactQueryProvider>{children}</ReactQueryProvider>
+                </Theme>
             </body>
         </html>
     );
