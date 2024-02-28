@@ -1,10 +1,31 @@
-import { Inter } from "next/font/google";
 import ReactQueryProvider from "@/shared/providers/ReactQueryProvider";
-import "../styles/globals.scss";
 import "@radix-ui/themes/styles.css";
+import "./theme-config.css";
+import "../styles/globals.scss";
 import { Theme } from "@radix-ui/themes";
+import localfont from "next/font/local";
 
-const inter = Inter({ subsets: ["latin"] });
+const myfont = localfont({
+    src: [
+        {
+            path: "../../public/PPNeueMontreal-Bold.otf",
+            weight: "900",
+        },
+        {
+            path: "../../public/PPNeueMontreal-Medium.otf",
+            weight: "500",
+        },
+        {
+            path: "../../public/PPNeueMontreal-Book.otf",
+            weight: "400",
+        },
+        {
+            path: "../../public/PPNeueMontreal-Thin.otf",
+            weight: "100",
+        },
+    ],
+    variable: "--PPNfont",
+});
 
 export const metadata = {
     title: "Create Next App",
@@ -14,7 +35,7 @@ export const metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
     return (
         <html lang="en">
-            <body className={`${inter.className}`}>
+            <body className={myfont.className}>
                 <Theme>
                     <ReactQueryProvider>{children}</ReactQueryProvider>
                 </Theme>
