@@ -5,7 +5,7 @@ import "../styles/globals.scss";
 import { Theme } from "@radix-ui/themes";
 import localfont from "next/font/local";
 
-const myfont = localfont({
+const ppnFont = localfont({
     src: [
         {
             path: "../../public/PPNeueMontreal-Bold.otf",
@@ -35,7 +35,7 @@ export const metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
     return (
         <html lang="en">
-            <body className={myfont.className}>
+            <body className={ppnFont.className}>
                 <Theme>
                     <ReactQueryProvider>{children}</ReactQueryProvider>
                 </Theme>

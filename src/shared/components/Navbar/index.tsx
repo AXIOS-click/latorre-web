@@ -6,7 +6,8 @@ import { useTimer } from "@/shared/hooks/useTimer";
 import { DropdownMenu } from "@radix-ui/themes";
 import Link from "next/link";
 import { useState } from "react";
-import burger from "./BurgerMenu.svg";
+import { Dropdown } from "./Dropdown";
+import { BurgerMenu } from "@/assets/images/imageProvider";
 
 export const Navbar = () => {
     const { getRoutesExcluding, getCurrentRoute } = useRouteHelper();
@@ -25,19 +26,7 @@ export const Navbar = () => {
         return (
             <li key={index}>
                 {isHomeAndProyectos ? (
-                    <DropdownMenu.Root>
-                        <DropdownMenu.Trigger>
-                            <span className="text-2xl hover:text-3xl transition-all">Proyectos</span>
-                        </DropdownMenu.Trigger>
-                        <DropdownMenu.Content>
-                            <DropdownMenu.Item>
-                                <Link href={"/esculturas"}>Esculturas</Link>
-                            </DropdownMenu.Item>
-                            <DropdownMenu.Item>
-                                <Link href={"/pinturas"}>Pinturas</Link>
-                            </DropdownMenu.Item>
-                        </DropdownMenu.Content>
-                    </DropdownMenu.Root>
+                    <Dropdown />
                 ) : (
                     <Link href={mapRoute.path} className="text-2xl hover:text-3xl transition-all">
                         {mapRoute.name}
@@ -55,7 +44,7 @@ export const Navbar = () => {
             <div className="md:hidden">
                 <DropdownMenu.Root>
                     <DropdownMenu.Trigger className="absolute right-6 top-2">
-                        <img src={burger.src} className="w-10" onClick={() => setBurgerOpen(!burgerOpen)} />
+                        <img src={BurgerMenu.src} className="w-10" onClick={() => setBurgerOpen(!burgerOpen)} />
                     </DropdownMenu.Trigger>
                     <DropdownMenu.Content className="w-full">
                         {navbarRoutes.slice(1).map((route, index) => (
