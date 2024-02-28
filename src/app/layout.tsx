@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import ReactQueryProvider from "@/shared/providers/ReactQueryProvider";
 import "../styles/globals.scss";
+import GalaxyRenderer from "@/shared/providers/GalaxyProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,6 +14,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     return (
         <html lang="en">
             <body className={`${inter.className}`}>
+                <GalaxyRenderer />
                 <ReactQueryProvider>{children}</ReactQueryProvider>
             </body>
         </html>
