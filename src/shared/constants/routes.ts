@@ -4,8 +4,8 @@ export enum ERoutes {
     BIOGRAFIA = "/biografia",
     REDES = "/redes",
     CONTACTO = "/contacto",
-    ESCULTURAS = "/proyectos/esculturas",
-    PINTURA = "/proyectos/pinturas",
+    ESCULTURAS = "/esculturas",
+    PINTURA = "/pinturas",
 }
 
 export type TActualRoutes = "Home" | "Proyectos" | "Bio" | "Redes" | "Contacto" | "Esculturas" | "Pinturas";

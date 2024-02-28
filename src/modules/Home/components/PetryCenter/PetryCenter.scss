@@ -78,8 +78,10 @@ $animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 @media (min-width: 375px) {
-
-    .petry-center,
+    .petry-center{
+        width: 100%;
+    }
+    
     .latorre {
         width: 50%;
     }

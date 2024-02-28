@@ -1,21 +1,20 @@
 "use client";
+
 import { ERoutes, IRoute } from "@/shared/constants/routes";
 import { useRouteHelper } from "@/shared/hooks/useRouteHelper";
 import { useTimer } from "@/shared/hooks/useTimer";
-import { Button, DropdownMenu } from "@radix-ui/themes";
+import { DropdownMenu } from "@radix-ui/themes";
 import Link from "next/link";
 import { useState } from "react";
+import burger from "./BurgerMenu.svg";
 
 export const Navbar = () => {
-    // Estado del menú desplegable
-    const [burgerMenu, setBurgerMenu] = useState(false);
-
-    // Obtener rutas de navegación y funciones de temporizador
     const { getRoutesExcluding, getCurrentRoute } = useRouteHelper();
     const navbarRoutes = getRoutesExcluding([ERoutes.HOME]);
     const { isInactive } = useTimer(8000);
 
-    // Función para renderizar cada elemento de la barra de navegación
+    const [burgerOpen, setBurgerOpen] = useState(false);
+
     const renderNavbarItem = (mapRoute: IRoute, index: number) => {
         const isHomeAndProyectos = getCurrentRoute()?.name === "Home" && mapRoute.name === "Proyectos";
         const liClassName = isHomeAndProyectos && isInactive ? "retroiluminado" : "";
@@ -50,21 +49,41 @@ export const Navbar = () => {
 
     return (
         <nav
-            className={`fixed top-0 w-full text-white mt-6 ${getCurrentRoute()?.name === "Home" ? "animate-navbar" : ""}`}
+            className={`fixed top-0 w-full text-white mt-2 ${getCurrentRoute()?.name === "Home" ? "animate-navbar" : ""}`}
         >
-            <div className="max-w-screen-xl mx-auto py-6">
+            {/* Navegacion responsive */}
+            <div className="md:hidden">
+                <DropdownMenu.Root>
+                    <DropdownMenu.Trigger className="absolute right-6 top-2">
+                        <img src={burger.src} className="w-10" onClick={() => setBurgerOpen(!burgerOpen)} />
+                    </DropdownMenu.Trigger>
+                    <DropdownMenu.Content className="w-full">
+                        {navbarRoutes.slice(1).map((route, index) => (
+                            <DropdownMenu.Item key={index}>
+                                <Link href={route.path}>{route.name}</Link>
+                            </DropdownMenu.Item>
+                        ))}
+                    </DropdownMenu.Content>
+                </DropdownMenu.Root>
+            </div>
+
+            {/* Navegacion Desktop */}
+            <div className="max-w-screen-xl mx-auto py-6 hidden md:block">
                 <div className="flex justify-between">
-                    <div className={`flex ${burgerMenu ? "scale-up-tr" : "hidden"} md:flex`}>
-                        <ul className="flex flex-col md:flex-row gap-4 items-center">
+                    <div className="flex scale-up-tr">
+                        <ul className="flex gap-4 items-center">
                             {navbarRoutes
                                 .slice(0, 2)
                                 .reverse()
                                 .map((route, index) => renderNavbarItem(route, index))}
                         </ul>
                     </div>
-                    <div className={`flex ${burgerMenu ? "scale-up-tr" : "hidden"} md:flex`}>
-                        <ul className="flex flex-col md:flex-row gap-4 items-center">
-                            {navbarRoutes.slice(-2).map((route, index) => renderNavbarItem(route, index))}
+                    <div className="flex scale-up-tr">
+                        <ul className="flex gap-4 items-center">
+                            {navbarRoutes
+                                .slice(-2)
+                                .reverse()
+                                .map((route, index) => renderNavbarItem(route, index))}
                         </ul>
                     </div>
                 </div>

@@ -5,8 +5,8 @@ export const ScultureOrganicsModule = () => {
     return (
         <main className="w-full h-full min-h-screen bg-latorre-bg">
             <Navbar />
-            <section className="pt-32 text-white px-20 flex flex-col gap-10">
-                <h1 className="text-5xl font-bold">Esculturas Organicas</h1>
+            <section className="py-32 text-white px-3 flex flex-col gap-4 sm:px-10 lg:px-28">
+                <h1 className="text-2xl font-bold">Esculturas Organicas</h1>
                <GridProducs/>
             </section>
         </main>
