@@ -2,6 +2,7 @@
 import { ERoutes, IRoute } from "@/shared/constants/routes";
 import { useRouteHelper } from "@/shared/hooks/useRouteHelper";
 import { useTimer } from "@/shared/hooks/useTimer";
+import { Button, DropdownMenu } from "@radix-ui/themes";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -25,31 +26,19 @@ export const Navbar = () => {
         return (
             <li key={index}>
                 {isHomeAndProyectos ? (
-                    <div onMouseEnter={toggleDropdown} onMouseLeave={toggleDropdown}>
-                        <button
-                            data-fc-type="dropdown"
-                            type="button"
-                            data-fc-offset={0}
-                            data-fc-trigger="hover"
-                            className={`text-2xl hover:text-3xl transition-all ${liClassName}`}
-                        >
-                            Proyectos
-                        </button>
-                        <div className={` ${openDropdown ? "block" : "hidden"} z-50 p-2 absolute`}>
-                            <Link
-                                className="flex items-center py-2 px-3 rounded-md hover:bg-latorre-red"
-                                href="/esculturas"
-                            >
-                                Esculturas
-                            </Link>
-                            <Link
-                                className="flex items-center py-2 px-3 rounded-md hover:bg-latorre-red"
-                                href="/pinturas"
-                            >
-                                Pinturas
-                            </Link>
-                        </div>
-                    </div>
+                    <DropdownMenu.Root>
+                        <DropdownMenu.Trigger>
+                            <span className="text-2xl hover:text-3xl transition-all">Proyectos</span>
+                        </DropdownMenu.Trigger>
+                        <DropdownMenu.Content>
+                            <DropdownMenu.Item>
+                                <Link href={"/esculturas"}>Esculturas</Link>
+                            </DropdownMenu.Item>
+                            <DropdownMenu.Item>
+                                <Link href={"/pinturas"}>Pinturas</Link>
+                            </DropdownMenu.Item>
+                        </DropdownMenu.Content>
+                    </DropdownMenu.Root>
                 ) : (
                     <Link href={mapRoute.path} className="text-2xl hover:text-3xl transition-all">
                         {mapRoute.name}
