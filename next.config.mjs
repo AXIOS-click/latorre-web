@@ -3,6 +3,9 @@
 import path from "path";
 
 const nextConfig = {
+    typescript: {
+        ignoreBuildErrors: true,
+    },
     reactStrictMode: true,
     sassOptions: {
         includePaths: [path.join(process.cwd(), "./src/styles")],

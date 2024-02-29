@@ -1,3 +1,4 @@
+import React from "react";
 import { Navbar } from "@/shared/components/Navbar";
 import Link from "next/link";
 
