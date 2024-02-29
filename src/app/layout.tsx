@@ -2,6 +2,9 @@ import ReactQueryProvider from "@/shared/providers/ReactQueryProvider";
 import "@radix-ui/themes/styles.css";
 import "./theme-config.css";
 import "../styles/globals.scss";
+
+import GalaxyRenderer from "@/shared/providers/GalaxyProvider";
+
 import { Theme } from "@radix-ui/themes";
 import localfont from "next/font/local";
 
@@ -37,6 +40,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <html lang="en">
             <body className={ppnFont.className}>
                 <Theme>
+                    <GalaxyRenderer />
                     <ReactQueryProvider>{children}</ReactQueryProvider>
                 </Theme>
             </body>
