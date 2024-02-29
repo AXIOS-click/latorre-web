@@ -1,5 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-// components/GalaxyRenderer.js
 import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { AdditiveBlending } from "three";
@@ -21,14 +21,14 @@ const GalaxyRenderer = () => {
             insideColor: "#a930ff",
             outsideColor: "#fff",
         };
-        let geometry = new THREE.BufferGeometry();
+        const geometry = new THREE.BufferGeometry();
         const textureLoader = new THREE.TextureLoader();
         const shape = textureLoader.load("/particleShape/1.png");
         let bgStarsGeometry: any = null;
         let bgStarsMaterial: any = null;
         let bgStars: any = null;
 
-        let material = new THREE.PointsMaterial({
+        const material = new THREE.PointsMaterial({
             color: "white",
             size: parameters.size,
             depthWrite: false,
@@ -38,7 +38,7 @@ const GalaxyRenderer = () => {
             transparent: true,
             alphaMap: shape,
         });
-        let points = new THREE.Points(geometry, material);
+        const points = new THREE.Points(geometry, material);
         const sizes = {
             width: window.innerWidth,
             height: window.innerHeight,
