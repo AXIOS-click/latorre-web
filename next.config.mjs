@@ -11,7 +11,7 @@ const nextConfig = {
         includePaths: [path.join(process.cwd(), "./src/styles")],
     },
     eslint: {
-        dirs: ["src"],
+        dirs: ["src"]
     },
 };
 
