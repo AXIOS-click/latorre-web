@@ -5,7 +5,7 @@ import { Navbar } from "../../shared/components/Navbar";
 
 export const HomeModule = () => {
     return (
-        <main className="w-full h-screen max-h-screen bg-black flex justify-center items-center">
+        <main className="w-full h-screen max-h-screen bg-latorre-bg flex justify-center items-center">
             <OpenHomeAnimation />
             <Navbar/>
             <PetryCenter />

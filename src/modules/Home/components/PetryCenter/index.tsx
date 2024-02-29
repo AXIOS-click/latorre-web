@@ -7,18 +7,11 @@ import { useState } from "react";
 
 const PetryCenter = () => {
     const [animationEnded, setAnimationEnded] = useState(false);
-    const [hoverEffectActive, setHoverEffectActive] = useState(false);
-
-    const handleMouseEnter = () => {
-        if (hoverEffectActive) {
-            setHoverEffectActive(false);
-        }
-    };
-
+    const [startHeartbeat, setStartHeartbeat] = useState(false);
     const handleMouseLeave = () => {
         setTimeout(() => {
-            setHoverEffectActive(true);
-        }, 500);
+            setStartHeartbeat(true);
+        }, 1000);
     };
 
     const { data } = useQueryHook({
@@ -30,7 +23,7 @@ const PetryCenter = () => {
         console.log(data, "niu");
     }
     return (
-        <div className="absolute w-full justify-center flex flex-col items-center justify-items-center">
+        <div className="absolute flex w-full  justify-center  flex-col items-center justify-items-center">
             <div className="petry-container">
                 <Image
                     src={PetryTemporal}
@@ -38,9 +31,11 @@ const PetryCenter = () => {
                     width={384}
                     height={384}
                     priority
-                    className={`${animationEnded ? "petry-center" : "scale-down-center"} ${hoverEffectActive && "heartbeat-effect"}`}
-                    onAnimationEnd={() => setAnimationEnded(!animationEnded)}
-                    onMouseEnter={handleMouseEnter}
+                    className={`${animationEnded ? "petry-center" : "scale-down-center"} ${startHeartbeat && "heartbeat-effect"}`}
+                    onAnimationEnd={() => {
+                        setAnimationEnded(true);
+                        setStartHeartbeat(false);
+                    }}
                     onMouseLeave={handleMouseLeave}
                 />
             </div>
@@ -49,7 +44,7 @@ const PetryCenter = () => {
                 alt="Pintura Petry"
                 width={384}
                 height={384}
-                className={`fade-in ${animationEnded && "show"} mt-3 latorre`}
+                className={`fade-in ${animationEnded && "show aparecer-desde-abajo"} mt-3 sm:mt-16 latorre`}
                 priority
             />
         </div>
