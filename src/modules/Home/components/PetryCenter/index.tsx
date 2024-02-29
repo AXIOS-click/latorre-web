@@ -30,7 +30,7 @@ const PetryCenter = () => {
         console.log(data, "niu");
     }
     return (
-        <div className="absolute w-full justify-center flex flex-col items-center justify-items-center">
+        <div className="absolute flex w-full  justify-center  flex-col items-center justify-items-center">
             <div className="petry-container">
                 <Image
                     src={PetryTemporal}
@@ -49,7 +49,7 @@ const PetryCenter = () => {
                 alt="Pintura Petry"
                 width={384}
                 height={384}
-                className={`fade-in ${animationEnded && "show aparecer-desde-abajo"} mt-16 latorre`}
+                className={`fade-in ${animationEnded && "show aparecer-desde-abajo"} mt-3 sm:mt-16 latorre`}
                 priority
             />
         </div>

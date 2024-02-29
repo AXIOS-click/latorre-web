@@ -1,14 +1,26 @@
-import { GridProducs } from "@/shared/components/Gridproducs";
 import { Navbar } from "@/shared/components/Navbar";
+import Link from "next/link";
+
+const EsculturaLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
+    <Link
+        href={href}
+        className="bg-blue-500 h-full w-full sm:max-w-96 rounded-lg sm:max-h-96 text-white flex justify-center items-center"
+    >
+        {children}
+    </Link>
+);
 
 export const ScultureModule = () => {
     return (
-        <main className="w-full bg-black min-h-screen">
+        <div className="w-full h-screen max-h-screen bg-latorre-bg">
             <Navbar />
-            <section className="px-20 pt-20 text-white">
-                <h1 className="text-center text-5xl font-bold">Esculturas</h1>
-                <GridProducs/>
+            <section className="w-full h-full text-white flex justify-center items-center flex-col py-11 px-4 gap-4 md:py-32">
+                <h1 className="text-center text-3xl font-bold">Esculturas</h1>
+                <div className="w-full h-full flex flex-col gap-4 sm:flex-row justify-center items-center">
+                    <EsculturaLink href={"/esculturas/organicas"}>Organicas</EsculturaLink>
+                    <EsculturaLink href={"/esculturas/figurativas"}>Figurativas</EsculturaLink>
+                </div>
             </section>
-        </main>
+        </div>
     );
 };

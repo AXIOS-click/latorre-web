@@ -12,6 +12,7 @@ module.exports = {
         extend: {
             colors: {
                 "latorre-red": "var(--latorre-red)",
+                "latorre-bg": "#060114",
             },
         },
     },
