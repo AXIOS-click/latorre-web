@@ -7,18 +7,11 @@ import { useState } from "react";
 
 const PetryCenter = () => {
     const [animationEnded, setAnimationEnded] = useState(false);
-    const [hoverEffectActive, setHoverEffectActive] = useState(false);
-
-    const handleMouseEnter = () => {
-        if (hoverEffectActive) {
-            setHoverEffectActive(false);
-        }
-    };
-
+    const [startHeartbeat, setStartHeartbeat] = useState(false);
     const handleMouseLeave = () => {
         setTimeout(() => {
-            setHoverEffectActive(true);
-        }, 500);
+            setStartHeartbeat(true);
+        }, 1000);
     };
 
     const { data } = useQueryHook({
@@ -38,9 +31,11 @@ const PetryCenter = () => {
                     width={384}
                     height={384}
                     priority
-                    className={`${animationEnded ? "petry-center" : "scale-down-center"} ${hoverEffectActive && "heartbeat-effect"}`}
-                    onAnimationEnd={() => setAnimationEnded(!animationEnded)}
-                    onMouseEnter={handleMouseEnter}
+                    className={`${animationEnded ? "petry-center" : "scale-down-center"} ${startHeartbeat && "heartbeat-effect"}`}
+                    onAnimationEnd={() => {
+                        setAnimationEnded(true);
+                        setStartHeartbeat(false);
+                    }}
                     onMouseLeave={handleMouseLeave}
                 />
             </div>

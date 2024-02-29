@@ -7,6 +7,7 @@ import GalaxyRenderer from "@/shared/providers/GalaxyProvider";
 
 import { Theme } from "@radix-ui/themes";
 import localfont from "next/font/local";
+import Script from "next/script";
 
 const ppnFont = localfont({
     src: [
