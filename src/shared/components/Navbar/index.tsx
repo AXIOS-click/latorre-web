@@ -2,7 +2,6 @@
 
 import { ERoutes, IRoute } from "@/shared/constants/routes";
 import { useRouteHelper } from "@/shared/hooks/useRouteHelper";
-import { useTimer } from "@/shared/hooks/useTimer";
 import { DropdownMenu } from "@radix-ui/themes";
 import Link from "next/link";
 import { useState } from "react";
@@ -12,16 +11,12 @@ import { BurgerMenu } from "@/assets/images/imageProvider";
 export const Navbar = () => {
     const { getRoutesExcluding, getCurrentRoute } = useRouteHelper();
     const navbarRoutes = getRoutesExcluding([ERoutes.HOME]);
-    const { isInactive } = useTimer(8000);
 
     const [burgerOpen, setBurgerOpen] = useState(false);
 
     const renderNavbarItem = (mapRoute: IRoute, index: number) => {
         const isHomeAndProyectos = getCurrentRoute()?.name === "Home" && mapRoute.name === "Proyectos";
-        const liClassName = isHomeAndProyectos && isInactive ? "retroiluminado" : "";
-        const [openDropdown, setOpenDropdown] = useState(false);
 
-        const toggleDropdown = () => setOpenDropdown(!openDropdown);
 
         return (
             <li key={index}>
@@ -48,7 +43,7 @@ export const Navbar = () => {
                     </DropdownMenu.Trigger>
                     <DropdownMenu.Content className="w-full">
                         {navbarRoutes.slice(1).map((route, index) => (
-                            <DropdownMenu.Item key={index}>
+                            <DropdownMenu.Item key={`${index + 1}`}>
                                 <Link href={route.path}>{route.name}</Link>
                             </DropdownMenu.Item>
                         ))}
