@@ -21,7 +21,6 @@ export const DropdownResponsive = ({ routes }: { routes: IRoute[] }) => {
 };
 
 export const DropdownDesktop = ({ retroiluminado, subrutas }: { retroiluminado: string; subrutas: Array<IRoute> }) => {
-    console.log(subrutas);
 
     return (
         <DropdownMenu.Root>
