@@ -1,7 +1,5 @@
 "use client";
 import { Latorre, PetryTemporal } from "@/assets/images/imageProvider";
-import { useQueryHook } from "@/shared/hooks/useQueryHook";
-import { getAllEsculturas } from "@/shared/services/strapi/Escultura/aplication/esculturaService";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -14,14 +12,6 @@ const PetryCenter = () => {
         }, 1000);
     };
 
-    const { data } = useQueryHook({
-        queryKey: ["getAllEsculturas"],
-        queryFn: () => getAllEsculturas(),
-    });
-
-    if (data) {
-        console.log(data, "niu");
-    }
     return (
         <div className="absolute flex w-full  justify-center  flex-col items-center justify-items-center">
             <div className="petry-container">

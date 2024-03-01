@@ -2,12 +2,9 @@ import ReactQueryProvider from "@/shared/providers/ReactQueryProvider";
 import "@radix-ui/themes/styles.css";
 import "./theme-config.css";
 import "../styles/globals.scss";
-
 import GalaxyRenderer from "@/shared/providers/GalaxyProvider";
-
 import { Theme } from "@radix-ui/themes";
 import localfont from "next/font/local";
-import Script from "next/script";
 
 const ppnFont = localfont({
     src: [
