@@ -1,32 +1,8 @@
-"use client";
-
 import { Navbar } from "@/shared/components/Navbar";
 import Link from "next/link";
 import { ROUTES } from "@/shared/constants/routes";
-import { useQueryHook } from "@/shared/hooks/useQueryHook";
-import { getAllEsculturas } from "@/shared/services/strapi/Escultura/aplication/esculturaService";
-import { IEscultura } from "@/shared/services/strapi/Escultura/domain/Escultura";
-
-interface Escultura {
-    id: number;
-    attributes: IEscultura;
-}
 
 export const ScultureModule = () => {
-    const { data } = useQueryHook({
-        queryKey: ["getAllEsculturas"],
-        queryFn: getAllEsculturas,
-    });
-    const response: Escultura[] | undefined = data?.data as Escultura[] | undefined;
-
-    function filterEsculturasByCategoria(categoria: string) {
-        return response?.filter((escultura: any) => escultura.attributes.Categoria === categoria);
-    }
-
-    const esculturasOrganicas = filterEsculturasByCategoria("Organica");
-    const esculturasFigurativas = filterEsculturasByCategoria("Figurativa");
-
-
     const subRoutesEsculturas = ROUTES.filter(
         route => route.name === "Esculturas" && route.subRoutes !== undefined
     ).flatMap(route =>
