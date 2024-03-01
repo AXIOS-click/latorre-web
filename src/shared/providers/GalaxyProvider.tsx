@@ -172,6 +172,7 @@ const GalaxyRenderer = () => {
             className="webgl"
             style={{
                 position: "absolute",
+                maxWidth: "100%",
             }}
         ></canvas>
     );

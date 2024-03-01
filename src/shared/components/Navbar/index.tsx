@@ -13,7 +13,6 @@ export const Navbar = () => {
 
     const rutasConSubrutas = navbarRoutes.filter(ruta => ruta.subRoutes !== undefined && ruta.subRoutes.length > 0);
 
-
     const renderNavbarItem = (mapRoute: IRoute, index: number) => {
         const isHomeAndProyectos = getCurrentRoute()?.name === "Home" && mapRoute.name === "Proyectos";
         const liClassName = isHomeAndProyectos && isInactive ? "retroiluminado" : "";
@@ -21,7 +20,7 @@ export const Navbar = () => {
         return (
             <li key={index}>
                 {isHomeAndProyectos ? (
-                    <DropdownDesktop retroiluminado={liClassName} subrutas={rutasConSubrutas}/>
+                    <DropdownDesktop retroiluminado={liClassName} subrutas={rutasConSubrutas} />
                 ) : (
                     <Link href={mapRoute.path} className="text-2xl hover:text-3xl transition-all">
                         {mapRoute.name}
@@ -33,7 +32,7 @@ export const Navbar = () => {
 
     return (
         <nav
-            className={`fixed top-0 w-full text-white mt-2 ${getCurrentRoute()?.name === "Home" ? "animate-navbar" : ""}`}
+            className={`fixed z-50 top-0 w-full text-white mt-2 ${getCurrentRoute()?.name === "Home" ? "animate-navbar" : ""}`}
         >
             {/* Navegacion responsive */}
             <div className="md:hidden">

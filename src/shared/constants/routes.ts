@@ -23,10 +23,10 @@ export type TActualRoutes =
     | "Contacto"
     | "Esculturas"
     | "Pinturas"
-    | "EsculturasOrganicas"
-    | "EsculturasFigurativas"
-    | "PinturasOrganicas"
-    | "PinturasFigurativas";
+    | "Esculturas Organicas"
+    | "Esculturas Figurativas"
+    | "Pinturas Organicas"
+    | "Pinturas Figurativas";
 
 export interface IRoute {
     name: TActualRoutes;
@@ -42,16 +42,16 @@ export const ROUTES: IRoute[] = [
         name: "Esculturas",
         path: ERoutes.ESCULTURAS,
         subRoutes: [
-            { name: "EsculturasOrganicas", path: ERoutes.ESCULTURAS_ORGANICAS },
-            { name: "EsculturasFigurativas", path: ERoutes.ESCULTURAS_FIGURATIVAS },
+            { name: "Esculturas Organicas", path: ERoutes.ESCULTURAS_ORGANICAS },
+            { name: "Esculturas Figurativas", path: ERoutes.ESCULTURAS_FIGURATIVAS },
         ],
     },
     {
         name: "Pinturas",
         path: ERoutes.PINTURAS,
         subRoutes: [
-            { name: "PinturasOrganicas", path: ERoutes.PINTURAS_ORGANICAS },
-            { name: "PinturasFigurativas", path: ERoutes.PINTURAS_FIGURATIVAS },
+            { name: "Pinturas Organicas", path: ERoutes.PINTURAS_ORGANICAS },
+            { name: "Pinturas Figurativas", path: ERoutes.PINTURAS_FIGURATIVAS },
         ],
     },
     { name: "Redes", path: ERoutes.REDES },
