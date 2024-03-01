@@ -3,30 +3,25 @@
 import { ERoutes, IRoute } from "@/shared/constants/routes";
 import { useRouteHelper } from "@/shared/hooks/useRouteHelper";
 import { useTimer } from "@/shared/hooks/useTimer";
-import { DropdownMenu } from "@radix-ui/themes";
 import Link from "next/link";
-import { useState } from "react";
-import { Dropdown } from "./Dropdown";
-import { BurgerMenu } from "@/assets/images/imageProvider";
+import { DropdownDesktop, DropdownResponsive } from "./Dropdown";
 
 export const Navbar = () => {
     const { getRoutesExcluding, getCurrentRoute } = useRouteHelper();
     const navbarRoutes = getRoutesExcluding([ERoutes.HOME]);
     const { isInactive } = useTimer(8000);
 
-    const [burgerOpen, setBurgerOpen] = useState(false);
+    const rutasConSubrutas = navbarRoutes.filter(ruta => ruta.subRoutes !== undefined && ruta.subRoutes.length > 0);
+
 
     const renderNavbarItem = (mapRoute: IRoute, index: number) => {
         const isHomeAndProyectos = getCurrentRoute()?.name === "Home" && mapRoute.name === "Proyectos";
         const liClassName = isHomeAndProyectos && isInactive ? "retroiluminado" : "";
-        const [openDropdown, setOpenDropdown] = useState(false);
-
-        const toggleDropdown = () => setOpenDropdown(!openDropdown);
 
         return (
             <li key={index}>
                 {isHomeAndProyectos ? (
-                    <Dropdown />
+                    <DropdownDesktop retroiluminado={liClassName} subrutas={rutasConSubrutas}/>
                 ) : (
                     <Link href={mapRoute.path} className="text-2xl hover:text-3xl transition-all">
                         {mapRoute.name}
@@ -42,18 +37,7 @@ export const Navbar = () => {
         >
             {/* Navegacion responsive */}
             <div className="md:hidden">
-                <DropdownMenu.Root>
-                    <DropdownMenu.Trigger className="absolute right-6 top-2">
-                        <img src={BurgerMenu.src} className="w-10" onClick={() => setBurgerOpen(!burgerOpen)} />
-                    </DropdownMenu.Trigger>
-                    <DropdownMenu.Content className="w-full">
-                        {navbarRoutes.slice(1).map((route, index) => (
-                            <DropdownMenu.Item key={index}>
-                                <Link href={route.path}>{route.name}</Link>
-                            </DropdownMenu.Item>
-                        ))}
-                    </DropdownMenu.Content>
-                </DropdownMenu.Root>
+                <DropdownResponsive routes={navbarRoutes} />
             </div>
 
             {/* Navegacion Desktop */}
