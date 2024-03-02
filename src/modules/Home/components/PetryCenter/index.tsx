@@ -28,8 +28,8 @@ const PetryCenter = () => {
                 <Image
                     src={PetryTemporal}
                     alt="Pintura Petry"
-                    width={434}
-                    height={434}
+                    width={375}
+                    height={375}
                     priority
                     className={`${animationEnded ? "petry-center" : "scale-down-center"} ${startHeartbeat && "heartbeat-effect"}`}
                     onAnimationEnd={() => {
@@ -41,8 +41,8 @@ const PetryCenter = () => {
                 <Image
                     src={Latorre}
                     alt="Pintura Petry"
-                    width={434}
-                    height={434}
+                    width={375}
+                    height={375}
                     className={`fade-in ${animationEnded ? "show aparecer-desde-abajo" : ""} mt-5 sm:mt-10 latorre`}
                     priority
                 />

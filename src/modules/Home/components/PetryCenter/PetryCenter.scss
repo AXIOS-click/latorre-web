@@ -9,7 +9,7 @@ $animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 .petry-container {
     position: relative;
     display: inline-block;
-    padding-top: 85px;
+    padding-top: 75px;
     &::before {
         content: "";
         position: absolute;
@@ -27,7 +27,7 @@ $animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 .petry-center {
     z-index: 50;
     transition: transform $scale-transition;
-    width: 434px;
+    width: 375px;
 
     &:hover {
         transform: scale(1.03);
@@ -35,8 +35,8 @@ $animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .latorre {
-    width: 434px;
-    padding-top: 15px;
+    width: 375px;
+    padding-top: 10px;
 }
 
 .scale-down-center {
@@ -58,7 +58,7 @@ $animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
 @keyframes aparecer-desde-abajo {
     0% {
-        transform: translateY(100%);
+        transform: translateY(50%);
         opacity: 0;
     }
 
@@ -105,7 +105,7 @@ $animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
     .petry-center,
     .latorre {
-        width: 434px;
+        width: 375px;
     }
 }
 

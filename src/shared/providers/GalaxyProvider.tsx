@@ -135,7 +135,7 @@ const GalaxyRenderer = () => {
         });
         const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100);
         camera.position.x = 0;
-        camera.position.y = 4;
+        camera.position.y = 4.05;
         camera.position.z = 1.5;
         scene.add(camera);
         const renderer = new THREE.WebGLRenderer({
