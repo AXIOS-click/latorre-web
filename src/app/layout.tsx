@@ -41,8 +41,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <html lang="en">
             <body className={ppnFont.className}>
                 <Theme>
-                    <GalaxyRenderer />
                     <ReactQueryProvider>{children}</ReactQueryProvider>
+                    <GalaxyRenderer />
                 </Theme>
             </body>
         </html>
