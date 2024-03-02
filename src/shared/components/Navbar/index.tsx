@@ -15,7 +15,7 @@ export const Navbar = () => {
     const [burgerOpen, setBurgerOpen] = useState(false);
 
     const renderNavbarItem = (mapRoute: IRoute, index: number) => {
-        const isHomeAndProyectos = getCurrentRoute()?.name === "Home" && mapRoute.name === "Proyectos";
+        const isHomeAndProyectos = getCurrentRoute()?.name === "Home" && mapRoute.name === "Proyects";
 
 
         return (
@@ -23,7 +23,7 @@ export const Navbar = () => {
                 {isHomeAndProyectos ? (
                     <Dropdown />
                 ) : (
-                    <Link href={mapRoute.path} className="text-2xl hover:text-3xl transition-all">
+                    <Link href={mapRoute.path} className="text-3xl hover:text-3xl transition-all font-medium">
                         {mapRoute.name}
                     </Link>
                 )}
@@ -53,9 +53,9 @@ export const Navbar = () => {
 
             {/* Navegacion Desktop */}
             <div className="max-w-screen-xl mx-auto py-6 hidden md:block">
-                <div className="flex justify-between">
+                <div className="flex justify-between pt-14 uppercase">
                     <div className="flex scale-up-tr">
-                        <ul className="flex gap-4 items-center">
+                        <ul className="flex gap-10 items-center">
                             {navbarRoutes
                                 .slice(0, 2)
                                 .reverse()
@@ -63,7 +63,7 @@ export const Navbar = () => {
                         </ul>
                     </div>
                     <div className="flex scale-up-tr">
-                        <ul className="flex gap-4 items-center">
+                        <ul className="flex gap-10 items-center">
                             {navbarRoutes
                                 .slice(-2)
                                 .reverse()
