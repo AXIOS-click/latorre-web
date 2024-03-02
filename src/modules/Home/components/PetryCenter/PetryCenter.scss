@@ -9,6 +9,7 @@ $animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 .petry-container {
     position: relative;
     display: inline-block;
+    padding-top: 85px;
     &::before {
         content: "";
         position: absolute;
@@ -26,7 +27,7 @@ $animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 .petry-center {
     z-index: 50;
     transition: transform $scale-transition;
-    width: 384px;
+    width: 434px;
 
     &:hover {
         transform: scale(1.03);
@@ -34,7 +35,8 @@ $animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .latorre {
-    width: 384px;
+    width: 434px;
+    padding-top: 15px;
 }
 
 .scale-down-center {
@@ -103,7 +105,7 @@ $animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
     .petry-center,
     .latorre {
-        width: 384px;
+        width: 434px;
     }
 }
 

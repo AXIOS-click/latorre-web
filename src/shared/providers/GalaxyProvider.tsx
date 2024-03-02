@@ -136,7 +136,7 @@ const GalaxyRenderer = () => {
         const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100);
         camera.position.x = 0;
         camera.position.y = 4;
-        camera.position.z = 8;
+        camera.position.z = 1.5;
         scene.add(camera);
         const renderer = new THREE.WebGLRenderer({
             canvas: canvas as HTMLCanvasElement | OffscreenCanvas | undefined,
@@ -149,11 +149,11 @@ const GalaxyRenderer = () => {
 
         const tick = () => {
             const elapsedTime = clock.getElapsedTime();
-            const targetStarsRotationSpeed = 0.05;
+            const targetStarsRotationSpeed = 0.02;
             const starsRotationSpeed = GalaxyStore.getState().starsRotationSpeed;
             const newSpeed = THREE.MathUtils.lerp(starsRotationSpeed, targetStarsRotationSpeed, 0.1);
 
-            points.rotation.y = elapsedTime * 0.3;
+            points.rotation.y = elapsedTime * 0.05;
             bgStars.rotation.y = -elapsedTime * newSpeed;
             renderer.render(scene, camera);
             window.requestAnimationFrame(tick);

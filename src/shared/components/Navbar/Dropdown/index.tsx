@@ -5,7 +5,7 @@ export const Dropdown = () => {
     return (
         <DropdownMenu.Root>
             <DropdownMenu.Trigger>
-                <span className="text-2xl hover:text-3xl transition-all">Proyectos</span>
+                <span className="text-3xl hover:text-3xl transition-all font-medium">Proyects</span>
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
                 <DropdownMenu.Item>

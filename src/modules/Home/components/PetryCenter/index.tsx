@@ -11,7 +11,7 @@ const PetryCenter = () => {
     const handleMouseLeave = () => {
         setTimeout(() => {
             setStartHeartbeat(true);
-        }, 1000);
+        }, 750);
     };
 
     const { data } = useQueryHook({
@@ -23,13 +23,13 @@ const PetryCenter = () => {
         console.log(data, "niu");
     }
     return (
-        <div className="absolute flex w-full  justify-center  flex-col items-center justify-items-center">
+        <div className="absolute flex w-full justify-center flex-col items-center justify-items-center">
             <div className="petry-container">
                 <Image
                     src={PetryTemporal}
                     alt="Pintura Petry"
-                    width={384}
-                    height={384}
+                    width={434}
+                    height={434}
                     priority
                     className={`${animationEnded ? "petry-center" : "scale-down-center"} ${startHeartbeat && "heartbeat-effect"}`}
                     onAnimationEnd={() => {
@@ -38,15 +38,15 @@ const PetryCenter = () => {
                     }}
                     onMouseLeave={handleMouseLeave}
                 />
+                <Image
+                    src={Latorre}
+                    alt="Pintura Petry"
+                    width={434}
+                    height={434}
+                    className={`fade-in ${animationEnded ? "show aparecer-desde-abajo" : ""} mt-5 sm:mt-10 latorre`}
+                    priority
+                />
             </div>
-            <Image
-                src={Latorre}
-                alt="Pintura Petry"
-                width={384}
-                height={384}
-                className={`fade-in ${animationEnded && "show aparecer-desde-abajo"} mt-3 sm:mt-16 latorre`}
-                priority
-            />
         </div>
     );
 };
