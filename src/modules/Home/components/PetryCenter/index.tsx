@@ -23,9 +23,7 @@ const PetryCenter = () => {
         console.log(data, "niu");
     }
     return (
-        <div className="absolute flex w-full justify-center flex-col items-center justify-items-center" style={{
-            zIndex: 9
-        }}>
+        <div className="absolute flex w-full justify-center flex-col items-center justify-items-center z-10">
             <div className="petry-container">
                 <Image
                     src={PetryTemporal}

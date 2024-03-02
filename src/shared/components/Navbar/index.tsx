@@ -33,11 +33,7 @@ export const Navbar = () => {
 
     return (
         <nav
-            className={`fixed top-0 w-full text-white mt-2 ${getCurrentRoute()?.name === "Home" ? "animate-navbar" : ""}`}
-            style={{
-                zIndex: 1000
-            }}
-        >
+            className={`fixed top-0 w-full text-white mt-2 z-20 ${getCurrentRoute()?.name === "Home" ? "animate-navbar" : ""}`} >
             {/* Navegacion responsive */}
             <div className="md:hidden">
                 <DropdownMenu.Root>
