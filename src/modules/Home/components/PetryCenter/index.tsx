@@ -31,7 +31,7 @@ const PetryCenter = () => {
                     width={375}
                     height={375}
                     priority
-                    className={`${animationEnded ? "petry-center" : "scale-down-center"} ${startHeartbeat && "heartbeat-effect"}`}
+                    className={`${animationEnded ? "petry-center" : "scale-down-center"} ${startHeartbeat && "heartbeat-effect"}`} style={{ position: "inherit", zIndex: 100 }}
                     onAnimationEnd={() => {
                         setAnimationEnded(true);
                         setStartHeartbeat(false);

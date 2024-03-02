@@ -1,7 +1,7 @@
 export enum ERoutes {
     HOME = "/",
     PROYECTOS = "/proyectos",
-    BIOGRAFIA = "/biografia",
+    BIOGRAFIA = "/bio",
     REDES = "/redes",
     CONTACTO = "/contacto",
     ESCULTURAS = "/esculturas",

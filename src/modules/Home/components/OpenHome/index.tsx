@@ -10,7 +10,7 @@ export const OpenHomeAnimation = () => {
             className={`${animationEnded ? "hidden" : "scale-out-center"}`}
             onAnimationEnd={() => setAnimationEnded(!animationEnded)}
             style={{
-                zIndex: 1000
+                zIndex: 2
             }}
         ></div>
     );
