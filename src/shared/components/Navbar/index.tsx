@@ -52,7 +52,7 @@ export const Navbar = () => {
 
             {/* Navegacion Desktop */}
             <div className="max-w-screen-xl mx-auto py-6 hidden md:block" >
-                <div className="flex justify-between pt-11 uppercase">
+                <div className="flex justify-between pt-9 uppercase">
                     <div className="flex scale-up-tr">
                         <ul className="flex gap-10 items-center">
                             {navbarRoutes

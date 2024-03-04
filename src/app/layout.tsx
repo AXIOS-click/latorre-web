@@ -39,7 +39,7 @@ export const metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
     return (
         <html lang="en">
-            <body className={ppnFont.className}>
+            <body className={ppnFont.className + " bg-latorre-bg"}>
                 <Theme>
                     <ReactQueryProvider>{children}</ReactQueryProvider>
                     <GalaxyRenderer />
