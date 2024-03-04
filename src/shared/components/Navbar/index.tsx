@@ -10,11 +10,11 @@ export const Navbar = () => {
     const { getRoutesExcluding, getCurrentRoute } = useRouteHelper();
     const navbarRoutes = getRoutesExcluding([ERoutes.HOME]);
     const { isInactive } = useTimer(8000);
-
     const rutasConSubrutas = navbarRoutes.filter(ruta => ruta.subRoutes !== undefined && ruta.subRoutes.length > 0);
 
+
     const renderNavbarItem = (mapRoute: IRoute, index: number) => {
-        const isHomeAndProyectos = getCurrentRoute()?.name === "Home" && mapRoute.name === "Proyectos";
+        const isHomeAndProyectos = getCurrentRoute()?.name === "Home" && mapRoute.name === "Proyects";
         const liClassName = isHomeAndProyectos && isInactive ? "retroiluminado" : "";
 
         return (
@@ -22,7 +22,7 @@ export const Navbar = () => {
                 {isHomeAndProyectos ? (
                     <DropdownDesktop retroiluminado={liClassName} subrutas={rutasConSubrutas} />
                 ) : (
-                    <Link href={mapRoute.path} className="text-2xl hover:text-3xl transition-all">
+                    <Link href={mapRoute.path} className="text-3xl hover:text-4xl transition-all font-medium">
                         {mapRoute.name}
                     </Link>
                 )}
@@ -32,7 +32,7 @@ export const Navbar = () => {
 
     return (
         <nav
-            className={`fixed z-50 top-0 w-full text-white mt-2 ${getCurrentRoute()?.name === "Home" ? "animate-navbar" : ""}`}
+            className={`fixed top-0 w-full text-white mt-2 ${getCurrentRoute()?.name === "Home" ? "animate-navbar" : ""} z-50`}
         >
             {/* Navegacion responsive */}
             <div className="md:hidden">
@@ -40,10 +40,10 @@ export const Navbar = () => {
             </div>
 
             {/* Navegacion Desktop */}
-            <div className="max-w-screen-xl mx-auto py-6 hidden md:block">
-                <div className="flex justify-between">
+            <div className="max-w-screen-xl mx-auto py-6 hidden md:block" >
+                <div className="flex justify-between pt-9 uppercase">
                     <div className="flex scale-up-tr">
-                        <ul className="flex gap-4 items-center">
+                        <ul className="flex gap-10 items-center">
                             {navbarRoutes
                                 .slice(0, 2)
                                 .reverse()
@@ -51,7 +51,7 @@ export const Navbar = () => {
                         </ul>
                     </div>
                     <div className="flex scale-up-tr">
-                        <ul className="flex gap-4 items-center">
+                        <ul className="flex gap-10 items-center">
                             {navbarRoutes
                                 .slice(-2)
                                 .reverse()

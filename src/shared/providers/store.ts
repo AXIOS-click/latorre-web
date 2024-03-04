@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { useZustandFunctions as ZustandFunctions  } from "../hooks/useZustadFunctions";
+import { useZustandFunctions as ZustandFunctions } from "../hooks/useZustadFunctions";
 enum GalaxyStoreProps {
     GalaxyRotationSpeed = "galaxyRotationSpeed",
     StarsRotationSpeed = "starsRotationSpeed",

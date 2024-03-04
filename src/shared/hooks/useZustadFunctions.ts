@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { type Action as TAction } from "../types/ZustandGlobalTypes";
 
 export const useZustandFunctions = <StoredActions, StateActions extends Partial<StoredActions>>() => {

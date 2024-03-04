@@ -1,49 +1,48 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
-// components/GalaxyRenderer.js
 import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
 import { AdditiveBlending } from "three";
 import { GalaxyStore } from "./store";
 
 const GalaxyRenderer = () => {
-    const parameters = {
-        count: 10000,
-        stars: 9600,
-        starColor: "#1b3984",
-        size: 0.001,
-        radius: 10,
-        branches: 8,
-        spin: 5,
-        randomness: 2,
-        randomnessPower: 10,
-        insideColor: "#a930ff",
-        outsideColor: "#fff",
-    };
     const canvasRef = useRef<HTMLCanvasElement>(null);
-    let geometry = new THREE.BufferGeometry();
-    const textureLoader = new THREE.TextureLoader();
-    const shape = textureLoader.load("/particleShape/1.png");
-    let bgStarsGeometry: any = null;
-    let bgStarsMaterial: any = null;
-    let bgStars: any = null;
-
-    let material = new THREE.PointsMaterial({
-        color: "white",
-        size: parameters.size,
-        depthWrite: false,
-        sizeAttenuation: true,
-        blending: AdditiveBlending,
-        vertexColors: true,
-        transparent: true,
-        alphaMap: shape,
-    });
-    let points = new THREE.Points(geometry, material);
-    const sizes = {
-        width: window.innerWidth,
-        height: window.innerHeight,
-    };
-
     useEffect(() => {
+        const parameters = {
+            count: 10000,
+            stars: 9600,
+            starColor: "#1b3984",
+            size: 0.001,
+            radius: 10,
+            branches: 8,
+            spin: 5,
+            randomness: 2,
+            randomnessPower: 10,
+            insideColor: "#a930ff",
+            outsideColor: "#fff",
+        };
+        const geometry = new THREE.BufferGeometry();
+        const textureLoader = new THREE.TextureLoader();
+        const shape = textureLoader.load("/particleShape/1.png");
+        let bgStarsGeometry: any = null;
+        let bgStarsMaterial: any = null;
+        let bgStars: any = null;
+
+        const material = new THREE.PointsMaterial({
+            color: "white",
+            size: parameters.size,
+            depthWrite: false,
+            sizeAttenuation: true,
+            blending: AdditiveBlending,
+            vertexColors: true,
+            transparent: true,
+            alphaMap: shape,
+        });
+        const points = new THREE.Points(geometry, material);
+        const sizes = {
+            width: window.innerWidth,
+            height: window.innerHeight,
+        };
         const canvas = canvasRef.current;
         const scene = new THREE.Scene();
 
@@ -67,7 +66,6 @@ const GalaxyRenderer = () => {
             bgStarsGeometry.setAttribute("position", new THREE.BufferAttribute(bgStarsPositions, 3));
 
             bgStarsMaterial = new THREE.PointsMaterial({
-                color: "white",
                 size: parameters.size,
                 depthWrite: false,
                 sizeAttenuation: true,
@@ -75,9 +73,9 @@ const GalaxyRenderer = () => {
                 color: parameters.starColor,
                 transparent: true,
                 alphaMap: shape,
-            });
+            }) as unknown as any;
 
-            bgStars = new THREE.Points(bgStarsGeometry, bgStarsMaterial);
+            bgStars = new THREE.Points(bgStarsGeometry, bgStarsMaterial) as unknown as any;
 
             scene.add(bgStars);
         };
@@ -137,11 +135,11 @@ const GalaxyRenderer = () => {
         });
         const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 100);
         camera.position.x = 0;
-        camera.position.y = 4;
-        camera.position.z = 8;
+        camera.position.y = 4.05;
+        camera.position.z = 1.5;
         scene.add(camera);
         const renderer = new THREE.WebGLRenderer({
-            canvas: canvas,
+            canvas: canvas as HTMLCanvasElement | OffscreenCanvas | undefined,
             alpha: true,
         });
         renderer.setSize(sizes.width, sizes.height);
@@ -151,11 +149,11 @@ const GalaxyRenderer = () => {
 
         const tick = () => {
             const elapsedTime = clock.getElapsedTime();
-            const targetStarsRotationSpeed = 0.05;
+            const targetStarsRotationSpeed = 0.02;
             const starsRotationSpeed = GalaxyStore.getState().starsRotationSpeed;
             const newSpeed = THREE.MathUtils.lerp(starsRotationSpeed, targetStarsRotationSpeed, 0.1);
 
-            points.rotation.y = elapsedTime * 0.3;
+            points.rotation.y = elapsedTime * 0.05;
             bgStars.rotation.y = -elapsedTime * newSpeed;
             renderer.render(scene, camera);
             window.requestAnimationFrame(tick);
@@ -173,6 +171,8 @@ const GalaxyRenderer = () => {
             style={{
                 position: "absolute",
                 maxWidth: "100%",
+                top: 0,
+                zIndex: 1,
             }}
         ></canvas>
     );

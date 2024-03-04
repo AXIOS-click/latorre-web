@@ -1,7 +1,7 @@
 export enum ERoutes {
     HOME = "/",
     PROYECTOS = "/proyectos",
-    BIOGRAFIA = "/biografia",
+    BIOGRAFIA = "/bio",
     REDES = "/redes",
     CONTACTO = "/contacto",
     /* Proyect - Esculturas - subRoutes */
@@ -17,10 +17,10 @@ export enum ERoutes {
 
 export type TActualRoutes =
     | "Home"
-    | "Proyectos"
+    | "Proyects"
     | "Bio"
-    | "Redes"
-    | "Contacto"
+    | "Social"
+    | "Contact"
     | "Esculturas"
     | "Pinturas"
     | "Esculturas Organicas"
@@ -36,7 +36,7 @@ export interface IRoute {
 
 export const ROUTES: IRoute[] = [
     { name: "Home", path: ERoutes.HOME },
-    { name: "Proyectos", path: ERoutes.PROYECTOS },
+    { name: "Proyects", path: ERoutes.PROYECTOS },
     { name: "Bio", path: ERoutes.BIOGRAFIA },
     {
         name: "Esculturas",
@@ -54,6 +54,6 @@ export const ROUTES: IRoute[] = [
             { name: "Pinturas Figurativas", path: ERoutes.PINTURAS_FIGURATIVAS },
         ],
     },
-    { name: "Redes", path: ERoutes.REDES },
-    { name: "Contacto", path: ERoutes.CONTACTO },
+    { name: "Contact", path: ERoutes.CONTACTO },
+    { name: "Social", path: ERoutes.REDES }
 ];

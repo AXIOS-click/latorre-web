@@ -9,7 +9,7 @@ export const DropdownResponsive = ({ routes }: { routes: IRoute[] }) => {
     return (
         <DropdownMenu.Root>
             <DropdownMenu.Trigger className="right-6 top-2 w-10 absolute">
-                <img src={BurgerMenu.src} />
+                <img src={BurgerMenu.src} alt="Burger menu"/>
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
                 {routes.slice(1).map((route, index) => (
@@ -25,11 +25,11 @@ export const DropdownResponsive = ({ routes }: { routes: IRoute[] }) => {
 export const DropdownDesktop = ({ retroiluminado, subrutas }: { retroiluminado: string; subrutas: Array<IRoute> }) => {
     const [open, setOpen] = useState(false);
     return (
-        <DropdownMenu.Root open={open} >
+        <DropdownMenu.Root open={open}>
             <DropdownMenu.Trigger onMouseEnter={()=>setOpen(true)} >
-                <span className={`${retroiluminado} text-2xl hover:text-3xl transition-all`}>Proyectos</span>
+                <span className={`${retroiluminado} text-2xl hover:text-3xl transition-all font-medium`}>Proyectos</span>
             </DropdownMenu.Trigger>
-            <DropdownMenu.Content>
+            <DropdownMenu.Content onMouseLeave={()=>setOpen(false)} >
                 {subrutas.map((ruta, index) => (
                     <DropdownMenu.Item key={index}>
                         <Link href={ruta.path}>{ruta.name}</Link>
