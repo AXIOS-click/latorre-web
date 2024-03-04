@@ -6,7 +6,7 @@ export const GridProducs = ({ productos }: { productos: { [key: string]: any }[]
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {productos.map((producto, index) => (
                 <div key={producto.id} className="w-full bg-red-500 h-96 rounded-lg">
-                    <span>{producto.attributes.Titulo}</span>
+                    <img src={`http://localhost:1337${producto.attributes.ImagenPrincipal.data.attributes.url}`}  className="w-full h-full object-cover"/>
                 </div>
             ))}
         </div>
