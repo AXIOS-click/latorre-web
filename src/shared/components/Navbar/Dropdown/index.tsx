@@ -1,9 +1,8 @@
-"use client";
+
 import { DropdownMenu } from "@radix-ui/themes";
 import { BurgerMenu } from "@/assets/images/imageProvider";
 import Link from "next/link";
 import { IRoute } from "@/shared/constants/routes";
-import { useState } from "react";
 
 export const DropdownResponsive = ({ routes }: { routes: IRoute[] }) => {
     return (
@@ -23,13 +22,12 @@ export const DropdownResponsive = ({ routes }: { routes: IRoute[] }) => {
 };
 
 export const DropdownDesktop = ({ retroiluminado, subrutas }: { retroiluminado: string; subrutas: Array<IRoute> }) => {
-    const [open, setOpen] = useState(false);
     return (
-        <DropdownMenu.Root open={open}>
-            <DropdownMenu.Trigger onMouseEnter={()=>setOpen(true)} >
+        <DropdownMenu.Root>
+            <DropdownMenu.Trigger>
                 <span className={`${retroiluminado} text-2xl hover:text-3xl transition-all font-medium`}>Proyectos</span>
             </DropdownMenu.Trigger>
-            <DropdownMenu.Content onMouseLeave={()=>setOpen(false)} >
+            <DropdownMenu.Content>
                 {subrutas.map((ruta, index) => (
                     <DropdownMenu.Item key={index}>
                         <Link href={ruta.path}>{ruta.name}</Link>
