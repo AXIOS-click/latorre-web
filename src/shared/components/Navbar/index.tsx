@@ -12,14 +12,14 @@ export const Navbar = () => {
     const { isInactive } = useTimer(8000);
     const rutasConSubrutas = navbarRoutes.filter(ruta => ruta.subRoutes !== undefined && ruta.subRoutes.length > 0);
 
-
     const renderNavbarItem = (mapRoute: IRoute, index: number) => {
-        const isHomeAndProyectos = getCurrentRoute()?.name === "Home" && mapRoute.name === "Proyects";
-        const liClassName = isHomeAndProyectos && isInactive ? "retroiluminado" : "";
+        const isProyects = mapRoute.name === "Proyects";
+        const isHome = getCurrentRoute()?.name === "Home";
+        const liClassName = isHome && isInactive ? "retroiluminado" : "";
 
         return (
             <li key={index}>
-                {isHomeAndProyectos ? (
+                {isProyects ? (
                     <DropdownDesktop retroiluminado={liClassName} subrutas={rutasConSubrutas} />
                 ) : (
                     <Link href={mapRoute.path} className="text-3xl hover:text-4xl transition-all font-medium">
@@ -40,7 +40,7 @@ export const Navbar = () => {
             </div>
 
             {/* Navegacion Desktop */}
-            <div className="max-w-screen-xl mx-auto py-6 hidden md:block" >
+            <div className="max-w-screen-xl mx-auto hidden md:block">
                 <div className="flex justify-between pt-9 uppercase">
                     <div className="flex scale-up-tr">
                         <ul className="flex gap-10 items-center">
