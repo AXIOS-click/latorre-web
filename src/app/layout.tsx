@@ -6,6 +6,7 @@ import "../styles/globals.scss";
 import GalaxyRenderer from "@/shared/providers/GalaxyProvider";
 import { Theme } from "@radix-ui/themes";
 import localfont from "next/font/local";
+import { Navbar } from "@/shared/components/Navbar";
 
 const ppnFont = localfont({
     src: [
@@ -39,6 +40,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <html lang="en">
             <body className={ppnFont.className + " bg-latorre-bg"}>
                 <Theme>
+                    <Navbar/>
                     <ReactQueryProvider>{children}</ReactQueryProvider>
                     <GalaxyRenderer />
                 </Theme>

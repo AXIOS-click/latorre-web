@@ -1,11 +1,8 @@
-import { Navbar } from "@/shared/components/Navbar";
 import { MainScrollableContainer } from "@/shared/layout/MainScrollableContainer";
-import Image from "next/image";
 import React from "react";
 export const BioModule = () => {
     return (
         <>
-            <Navbar />
             <MainScrollableContainer>
                 <div className="container mx-auto px-4">
                     <section className="grid grid-cols-1 md:grid-cols-12 gap-4 info">
