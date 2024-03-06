@@ -13,7 +13,7 @@ export interface IEscultura {
     Imagenes: string[];
 }
 
-interface ApiResponse {
+export interface ApiResponse {
     attributes: {
         Titulo: string;
         Serie: string;
