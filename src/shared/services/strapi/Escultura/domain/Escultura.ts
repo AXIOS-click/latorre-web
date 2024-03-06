@@ -3,7 +3,7 @@ export interface IEscultura {
     Serie: string;
     Materiales: string;
     Medidas: string;
-    Anio: Date;
+    Anio: string; // Cambiado a string
     ExplicacionSimple: string | null;
     createdAt: Date;
     updatedAt: Date;
@@ -13,13 +13,42 @@ export interface IEscultura {
     Imagenes: string[];
 }
 
-export function transformarRespuesta(respuesta: any[]): IEscultura[] {
+interface ApiResponse {
+    attributes: {
+        Titulo: string;
+        Serie: string;
+        Materiales: string;
+        Medidas: string;
+        Anio: string;
+        ExplicacionSimple: string | null;
+        createdAt: string;
+        updatedAt: string;
+        publishedAt: string;
+        slug: string;
+        ImagenPrincipal: {
+            data: {
+                attributes: {
+                    url: string;
+                };
+            };
+        };
+        Imagenes: {
+            data: {
+                attributes: {
+                    url: string;
+                };
+            }[];
+        };
+    };
+}
+
+export function transformarRespuesta(respuesta: ApiResponse[]): IEscultura[] {
     return respuesta.map(item => ({
         Titulo: item.attributes.Titulo,
         Serie: item.attributes.Serie,
         Materiales: item.attributes.Materiales,
         Medidas: item.attributes.Medidas,
-        Anio: new Date(item.attributes.Anio),
+        Anio: item.attributes.Anio,
         ExplicacionSimple: item.attributes.ExplicacionSimple,
         createdAt: new Date(item.attributes.createdAt),
         updatedAt: new Date(item.attributes.updatedAt),
@@ -28,7 +57,7 @@ export function transformarRespuesta(respuesta: any[]): IEscultura[] {
         ImagenPrincipal:
             process.env.NEXT_PUBLIC_STRAPI_BACKEND_URL + item.attributes.ImagenPrincipal.data.attributes.url,
         Imagenes: item.attributes.Imagenes.data.map(
-            (imagen: any) => process.env.NEXT_PUBLIC_STRAPI_BACKEND_URL + imagen.attributes.url
+            imagen => process.env.NEXT_PUBLIC_STRAPI_BACKEND_URL + imagen.attributes.url
         ),
     }));
 }
