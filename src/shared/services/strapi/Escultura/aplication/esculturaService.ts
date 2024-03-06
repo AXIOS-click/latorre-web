@@ -6,21 +6,20 @@ const QUERY_CON_IMAGENES = "?populate[Imagenes][fields][0]=url&populate[ImagenPr
 const QUERY_ESCULTURAS_ORGANICAS = "&filters[categoria][$eq]=organica";
 const QUERY_ESCULTURAS_FIGURATIVAS = "&filters[categoria][$eq]=figurativa";
 
+const BASE_CONSTRUCED_ESCULTURAS_URL = `${BASE_API_PREFIX}${BASE_ESCULTURA_URL}`;
+
 export const getAllEsculturas = async () => {
-    const { data: dataReceived } = await httpStrapiClient.get(`${BASE_API_PREFIX}${BASE_ESCULTURA_URL}`);
+    const { data: dataReceived } = await httpStrapiClient.get(BASE_CONSTRUCED_ESCULTURAS_URL);
     return dataReceived;
 };
 
-export const getEsculturasOrganicas = async () => {
+export const getEsculturas = async (type: "Organicas" | "Figurativas") => {
+    const query = {
+        Organicas: QUERY_ESCULTURAS_ORGANICAS,
+        Figurativas: QUERY_ESCULTURAS_FIGURATIVAS,
+    };
     const { data: dataReceived } = await httpStrapiClient.get(
-        `${BASE_API_PREFIX}${BASE_ESCULTURA_URL}${QUERY_CON_IMAGENES}${QUERY_ESCULTURAS_ORGANICAS}`
-    );
-    return dataReceived;
-};
-
-export const getEsculturasFigurativas = async () => {
-    const { data: dataReceived } = await httpStrapiClient.get(
-        `${BASE_API_PREFIX}${BASE_ESCULTURA_URL}${QUERY_CON_IMAGENES}${QUERY_ESCULTURAS_FIGURATIVAS}`
+        `${BASE_API_PREFIX}${BASE_ESCULTURA_URL}${QUERY_CON_IMAGENES}${query[type]}`
     );
     return dataReceived;
 };

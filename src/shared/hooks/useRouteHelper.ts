@@ -1,5 +1,5 @@
 import { usePathname } from "next/navigation";
-import { ERoutes, ROUTES } from "../constants/routes";
+import { ERoutes, IRoute, ROUTES } from "../constants/routes";
 
 export const useRouteHelper = () => {
     const pathname = usePathname();
@@ -16,5 +16,7 @@ export const useRouteHelper = () => {
         return ROUTES.filter(route => !routesToExclude.includes(route.path as ERoutes));
     };
 
-    return { getCurrentRoute, isOnRoute, getRoutesExcluding };
+    const routesWithSubRoutes = (navbarRoutes: IRoute[]) => navbarRoutes.filter(ruta => ruta.subRoutes !== undefined && ruta.subRoutes.length > 0);
+
+    return { getCurrentRoute, isOnRoute, getRoutesExcluding, routesWithSubRoutes };
 };

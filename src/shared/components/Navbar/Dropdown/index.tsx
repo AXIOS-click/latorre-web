@@ -25,7 +25,7 @@ export const DropdownDesktop = ({ estilo, subrutas }: { estilo: string; subrutas
     return (
         <DropdownMenu.Root>
             <DropdownMenu.Trigger>
-                <span className={`${estilo} text-2xl hover:text-3xl transition-all font-medium`}>Proyectos</span>
+                <span className={`${estilo} text-3xl hover:text-4xl transition-all font-medium`}>Proyects</span>
             </DropdownMenu.Trigger>
             <DropdownMenu.Content>
                 {subrutas.map((ruta, index) => (
