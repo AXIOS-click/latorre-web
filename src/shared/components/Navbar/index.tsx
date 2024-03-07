@@ -5,8 +5,7 @@ import { useRouteHelper } from "@/shared/hooks/useRouteHelper";
 import { useTimer } from "@/shared/hooks/useTimer";
 import Link from "next/link";
 import { DropdownDesktop, DropdownResponsive } from "./Dropdown";
-import { useEffect, useState } from "react";
-
+import { useNavbarStore } from "./store";
 export const Navbar = () => {
     const TIMER_INACTIVE = 8000;
 
@@ -14,27 +13,7 @@ export const Navbar = () => {
     const navbarRoutes = getRoutesExcluding([ERoutes.HOME]);
     const { isInactive } = useTimer(TIMER_INACTIVE);
     const rutasConSubrutas = routesWithSubRoutes(navbarRoutes);
-
-    const [header, setHeader] = useState(false);
-
-    useEffect(() => {
-        const mainSection = document.querySelector(".header_blur");
-
-        if (mainSection) {
-            mainSection.addEventListener("scroll", scrollHeader);
-            return () => mainSection.removeEventListener("scroll", scrollHeader);
-        }
-    }, []);
-
-    const scrollHeader = () => {
-        const mainSection = document.querySelector(".header_blur");
-
-        if (mainSection && mainSection.scrollTop >= 20) {
-            setHeader(true);
-        } else {
-            setHeader(false);
-        }
-    };
+    const { navbarScrolled } = useNavbarStore();
 
     const renderNavbarItem = (mapRoute: IRoute, index: number) => {
         const isProyects = mapRoute.name === "Proyects";
@@ -56,7 +35,7 @@ export const Navbar = () => {
 
     return (
         <nav
-            className={`fixed top-0 w-full text-white mt-2 ${getCurrentRoute()?.name === "Home" ? "animate-navbar" : ""} z-50 ${header ? "bg-latorre-bg" : ""}`}
+            className={`fixed top-0 w-full text-white mt-2 ${getCurrentRoute()?.name === "Home" ? "animate-navbar" : ""} z-50 ${navbarScrolled ? "bg-red-500" : ""} transform duration-700`}
         >
             {/* Navegacion responsive */}
             <div className="md:hidden">

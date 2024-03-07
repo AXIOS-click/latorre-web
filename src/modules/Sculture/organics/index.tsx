@@ -20,6 +20,7 @@ export const ScultureOrganicsModule = () => {
                     <h1 className="text-2xl font-bold">Esculturas Orgánicas</h1>
                     {response.length > 0 ? <GridProducts arrayProductos={response} /> : <p>Cargando...</p>}
                 </section>
+                <div className="h-screen"></div>
             </MainScrollableContainer>
         </main>
     );
