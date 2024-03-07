@@ -1,12 +1,12 @@
 import { FC } from "react";
-import { useStore } from "../components/Navbar/store";
+import { useNavbarStore } from "../components/Navbar/store";
 
 interface IMainScrollableContainer {
     children: React.ReactNode;
 }
 
 export const MainScrollableContainer: FC<IMainScrollableContainer> = ({ children }) => {
-    const { setNavbarScrolled } = useStore();
+    const { setNavbarScrolled } = useNavbarStore();
 
     // Funcion para agregarle blur a la navbar
     const handleScroll = (event: React.UIEvent<HTMLDivElement>) => {
