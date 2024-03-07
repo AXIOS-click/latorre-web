@@ -16,7 +16,12 @@ export const useRouteHelper = () => {
         return ROUTES.filter(route => !routesToExclude.includes(route.path as ERoutes));
     };
 
-    const routesWithSubRoutes = (navbarRoutes: IRoute[]) => navbarRoutes.filter(ruta => ruta.subRoutes !== undefined && ruta.subRoutes.length > 0);
+    const getOneRoute = (routeName: string) => {
+        return ROUTES.find(route => route.name === routeName);
+    };
 
-    return { getCurrentRoute, isOnRoute, getRoutesExcluding, routesWithSubRoutes };
+    const routesWithSubRoutes = (navbarRoutes: IRoute[]) =>
+        navbarRoutes.filter(ruta => ruta.subRoutes !== undefined && ruta.subRoutes.length > 0);
+
+    return { getCurrentRoute, isOnRoute, getRoutesExcluding, routesWithSubRoutes, getOneRoute };
 };
