@@ -35,7 +35,7 @@ export const Navbar = () => {
 
     return (
         <nav
-            className={`fixed top-0 w-full text-white mt-2 ${getCurrentRoute()?.name === "Home" ? "animate-navbar" : ""} z-50 ${navbarScrolled ? "bg-red-500" : ""} transform duration-700`}
+            className={`fixed top-0 w-full text-white  ${getCurrentRoute()?.name === "Home" ? "animate-navbar" : ""} z-50 ${navbarScrolled ? "bg-latorre-bg" : "mt-2"} transform duration-700`}
         >
             {/* Navegacion responsive */}
             <div className="md:hidden">
@@ -43,8 +43,8 @@ export const Navbar = () => {
             </div>
             {/* Navegacion Desktop */}
 
-            <div className="md:px-20 xl:max-w-screen-xl mx-auto hidden pt-9 md:block">
-                <div className="flex justify-between pt-9 uppercase">
+            <div className={`md:px-20 xl:max-w-screen-xl mx-auto hidden md:block ${navbarScrolled ? "" : "pt-9"}`}>
+                <div className={`flex justify-between  uppercase ${navbarScrolled ? "py-4" : "pt-9"}`}>
                     <div className="flex scale-up-tr">
                         <ul className="flex gap-10 items-center">
                             {navbarRoutes
