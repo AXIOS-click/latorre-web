@@ -1,7 +1,7 @@
 import { ScultureOrganicsModule } from "@/modules/Sculture/organics";
 
-const EsculturaOrganica = () => {
+const EsculturaFreschi = () => {
     return <ScultureOrganicsModule />;
 };
 
-export default EsculturaOrganica;
+export default EsculturaFreschi;

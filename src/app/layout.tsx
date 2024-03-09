@@ -1,13 +1,12 @@
+import React from "react";
 import ReactQueryProvider from "@/shared/providers/ReactQueryProvider";
 import "@radix-ui/themes/styles.css";
 import "./theme-config.css";
 import "../styles/globals.scss";
-
 import GalaxyRenderer from "@/shared/providers/GalaxyProvider";
-
 import { Theme } from "@radix-ui/themes";
 import localfont from "next/font/local";
-import Script from "next/script";
+import { Navbar } from "@/shared/components/Navbar";
 
 const ppnFont = localfont({
     src: [
@@ -39,10 +38,11 @@ export const metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
     return (
         <html lang="en">
-            <body className={ppnFont.className}>
+            <body className={ppnFont.className + " bg-latorre-bg"}>
                 <Theme>
-                    <GalaxyRenderer />
+                    <Navbar/>
                     <ReactQueryProvider>{children}</ReactQueryProvider>
+                    <GalaxyRenderer />
                 </Theme>
             </body>
         </html>
