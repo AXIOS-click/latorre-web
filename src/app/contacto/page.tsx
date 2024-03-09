@@ -1,5 +1,5 @@
 import { ContactModule } from "@/modules/contact/ContactModule";
 
-export const Contact = () => {
+export default function Contacto() {
     return <ContactModule />;
-};
+}
