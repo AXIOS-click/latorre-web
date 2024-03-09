@@ -1,6 +1,5 @@
 "use client";
 import { IStrapiScultureAndPaints } from "@/shared/services/strapi/Escultura/domain/Escultura";
-import { imgProvider } from "@/shared/utils/imgProvider";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -9,11 +8,10 @@ export const GridProducts = ({ arrayProductos }: { arrayProductos: IStrapiScultu
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-12">
             {arrayProductos.map(({ attributes }, index) => {
                 const { ImagenPrincipal } = attributes;
-                const { URL_IMAGES } = imgProvider();
                 return (
                     <Link href={attributes.slug} key={index}>
                         <ImageWhitTitle
-                            imagen={URL_IMAGES + ImagenPrincipal?.data?.attributes.url}
+                            imagen={ImagenPrincipal?.data?.attributes.url}
                             titulo={attributes.Titulo}
                         />
                     </Link>

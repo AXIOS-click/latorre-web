@@ -6,8 +6,8 @@ export enum ERoutes {
     CONTACTO = "/contacto",
     /* Proyect - Esculturas - subRoutes */
     ESCULTURAS = "/proyectos/esculturas",
-    ESCULTURAS_ORGANICAS = "/proyectos/esculturas/organicas",
-    ESCULTURAS_FIGURATIVAS = "/proyectos/esculturas/figurativas",
+    ESCULTURAS_FRESCHI = "/proyectos/esculturas/freschi",
+    ESCULTURAS_APPASITI = "/proyectos/esculturas/appassiti",
 
     /* Proyect - Pinturas - subRoutes */
     PINTURAS = "/proyectos/pinturas",
@@ -23,8 +23,8 @@ export type TActualRoutes =
     | "Contact"
     | "Esculturas"
     | "Pinturas"
-    | "Esculturas Organicas"
-    | "Esculturas Figurativas"
+    | "Freschi"
+    | "Appassiti"
     | "Pinturas Organicas"
     | "Pinturas Figurativas";
 
@@ -42,8 +42,8 @@ export const ROUTES: IRoute[] = [
         name: "Esculturas",
         path: ERoutes.ESCULTURAS,
         subRoutes: [
-            { name: "Esculturas Organicas", path: ERoutes.ESCULTURAS_ORGANICAS },
-            { name: "Esculturas Figurativas", path: ERoutes.ESCULTURAS_FIGURATIVAS },
+            { name: "Freschi", path: ERoutes.ESCULTURAS_FRESCHI },
+            { name: "Appassiti", path: ERoutes.ESCULTURAS_APPASITI },
         ],
     },
     {

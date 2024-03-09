@@ -3,8 +3,8 @@ import { httpStrapiClient } from "../../configs/httpStrapiClient";
 
 const BASE_ESCULTURA_URL = "/esculturas";
 const QUERY_CON_IMAGENES = "?populate[Imagenes][fields][0]=url&populate[ImagenPrincipal][fields][0]=url";
-const QUERY_ESCULTURAS_ORGANICAS = "&filters[categoria][$eq]=organica";
-const QUERY_ESCULTURAS_FIGURATIVAS = "&filters[categoria][$eq]=figurativa";
+const QUERY_ESCULTURAS_FRESCHI = "&filters[categoria][$eq]=freschi";
+const QUERY_ESCULTURAS_APPASSITI = "&filters[categoria][$eq]=appassiti";
 
 const BASE_CONSTRUCED_ESCULTURAS_URL = `${BASE_API_PREFIX}${BASE_ESCULTURA_URL}`;
 
@@ -13,10 +13,10 @@ export const getAllEsculturas = async () => {
     return dataReceived;
 };
 
-export const getEsculturas = async (type: "Organicas" | "Figurativas") => {
+export const getEsculturas = async (type: "Freschi" | "Appasiti") => {
     const query = {
-        Organicas: QUERY_ESCULTURAS_ORGANICAS,
-        Figurativas: QUERY_ESCULTURAS_FIGURATIVAS,
+        Freschi: QUERY_ESCULTURAS_FRESCHI,
+        Appasiti: QUERY_ESCULTURAS_APPASSITI,
     };
     const { data: dataReceived } = await httpStrapiClient.get(
         `${BASE_API_PREFIX}${BASE_ESCULTURA_URL}${QUERY_CON_IMAGENES}${query[type]}`

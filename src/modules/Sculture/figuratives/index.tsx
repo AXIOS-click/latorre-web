@@ -8,7 +8,7 @@ import { IStrapiScultureAndPaints } from "@/shared/services/strapi/Escultura/dom
 export const ScultureFigurativesModule = () => {
     const { data } = useQueryHook<string[], IStrapiScultureAndPaints[]>({
         queryKey: ["getAllEsculturasFigurativas"],
-        queryFn: () => getEsculturas("Figurativas"),
+        queryFn: () => getEsculturas("Appasiti"),
     });
 
     const response = data?.data || [];
