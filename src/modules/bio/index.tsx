@@ -1,66 +1,116 @@
+import { LatorreProfile } from "@/assets/images/imageProvider";
 import { MainScrollableContainer } from "@/shared/layout/MainScrollableContainer";
+import Image from "next/image";
 import React from "react";
 export const BioModule = () => {
     return (
         <MainScrollableContainer>
-            <div className="container mx-auto px-4">
-                <section className="grid grid-cols-1 md:grid-cols-12 gap-4 info">
-                    <div className="col-span-1 md:col-span-12">
-                        <div className="about">
-                            <h1 className="section-heading text-3xl md:text-5xl font-semibold text-gray-900">
-                                About Me
-                            </h1>
+            <section className="py-32 text-white flex flex-col gap-4 relative px-3 sm:px-4 md:px-12 lg:px-24 xl:px-32 2xl:px-44">
+                <div className="container mx-auto px-4">
+                    <div className="">
+                        <div className="">
+                            <div className="about">
+                                <h1 className="section-heading text-3xl md:text-5xl font-semibold text-gray-900 invisible">
+                                    About Me
+                                </h1>
+                            </div>
+                        </div>
+                        <div className="w-full">
+                            <div className="w-full mx-auto">
+                                <Image
+                                    className="float-left mr-4 w-52 h-52 object-cover"
+                                    src={LatorreProfile}
+                                    alt="Left"
+                                />
+                                <p>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non commodo est.
+                                    Maecenas eget nulla venenatis magna dignissim maximus. Donec erat lectus, feugiat
+                                    quis facilisis ac, malesuada eget odio. Pellentesque sapien felis, lobortis vel
+                                    ultricies sit amet, dapibus a lacus. Quisque blandit eleifend urna, non mollis est
+                                    commodo a. Mauris et aliquet massa. Curabitur blandit nibh mi, vitae facilisis felis
+                                    mattis nec.
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non commodo est.
+                                    Maecenas eget nulla venenatis magna dignissim maximus. Donec erat lectus, feugiat
+                                    quis facilisis ac, malesuada eget odio. Pellentesque sapien felis, lobortis vel
+                                    ultricies sit amet, dapibus a lacus. Quisque blandit eleifend urna, non mollis est
+                                    commodo a. Mauris et aliquet massa. Curabitur blandit nibh mi, vitae facilisis felis
+                                    mattis nec.
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non commodo est.
+                                    Maecenas eget nulla venenatis magna dignissim maximus. Donec erat lectus, feugiat
+                                    quis facilisis ac, malesuada eget odio. Pellentesque sapien felis, lobortis vel
+                                    ultricies sit amet, dapibus a lacus. Quisque blandit eleifend urna, non mollis est
+                                    commodo a. Mauris et aliquet massa. Curabitur blandit nibh mi, vitae facilisis felis
+                                    mattis nec.
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non commodo est.
+                                    Maecenas eget nulla venenatis magna dignissim maximus. Donec erat lectus, feugiat
+                                    quis facilisis ac, malesuada eget odio. Pellentesque sapien felis, lobortis vel
+                                    ultricies sit amet, dapibus a lacus. Quisque blandit eleifend urna, non mollis est
+                                    commodo a. Mauris et aliquet massa. Curabitur blandit nibh mi, vitae facilisis felis
+                                    mattis nec.
+                                </p>
+                                <p className="clear-both">
+                                    Nullam feugiat magna in diam feugiat dignissim. Nulla sapien mauris, egestas quis
+                                    nisl at, laoreet sagittis est. Vivamus rhoncus tempor lacus, eget fermentum erat
+                                    sollicitudin eget. Proin rutrum lacus id sapien sollicitudin, sed aliquet augue
+                                    fringilla. Maecenas nec ultricies orci. In sapien elit, condimentum vitae varius ut,
+                                    pretium ac lacus. Integer arcu enim, blandit ac tincidunt vitae, dictum in lectus.
+                                    Maecenas semper diam in dui aliquam, ut fermentum tortor dignissim. Etiam in euismod
+                                    risus. Donec posuere libero at dolor tristique ornare. Ut et tincidunt diam.
+                                    Suspendisse erat neque, accumsan eget arcu eget, finibus tincidunt risus. Curabitur
+                                    varius dolor eget urna malesuada euismod. Ut dolor velit, pellentesque eget nibh
+                                    sed, rutrum rutrum dolor. Morbi sed nisl iaculis, bibendum ligula ut, fermentum
+                                    nunc.
+                                </p>
+                                <h2 className="text-2xl font-bold mb-4">Otro Texto, Ejemplo</h2>
+                                <img
+                                    className="float-right ml-4 mb-4 w-48 h-48 object-cover"
+                                    src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/766775/200x200.png"
+                                    alt="Right"
+                                />
+                                <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non commodo est.
+                                    Maecenas eget nulla venenatis magna dignissim maximus. Donec erat lectus, feugiat
+                                    quis facilisis ac, malesuada eget odio. Pellentesque sapien felis, lobortis vel
+                                    ultricies sit amet, dapibus a lacus. Quisque blandit eleifend urna, non mollis est
+                                    commodo a. Mauris et aliquet massa. Curabitur blandit nibh mi, vitae facilisis felis
+                                    mattis nec.
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non commodo est.
+                                    Maecenas eget nulla venenatis magna dignissim maximus. Donec erat lectus, feugiat
+                                    quis facilisis ac, malesuada eget odio. Pellentesque sapien felis, lobortis vel
+                                    ultricies sit amet, dapibus a lacus. Quisque blandit eleifend urna, non mollis est
+                                    commodo a. Mauris et aliquet massa. Curabitur blandit nibh mi, vitae facilisis felis
+                                    mattis nec.
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non commodo est.
+                                    Maecenas eget nulla venenatis magna dignissim maximus. Donec erat lectus, feugiat
+                                    quis facilisis ac, malesuada eget odio. Pellentesque sapien felis, lobortis vel
+                                    ultricies sit amet, dapibus a lacus. Quisque blandit eleifend urna, non mollis est
+                                    commodo a. Mauris et aliquet massa. Curabitur blandit nibh mi, vitae facilisis felis
+                                    mattis nec.
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent non commodo est.
+                                    Maecenas eget nulla venenatis magna dignissim maximus. Donec erat lectus, feugiat
+                                    quis facilisis ac, malesuada eget odio. Pellentesque sapien felis, lobortis vel
+                                    ultricies sit amet, dapibus a lacus. Quisque blandit eleifend urna, non mollis est
+                                    commodo a. Mauris et aliquet massa. Curabitur blandit nibh mi, vitae facilisis felis
+                                    mattis nec.
+                                </p>
+                                <p className="clear-both">
+                                    Nullam feugiat magna in diam feugiat dignissim. Nulla sapien mauris, egestas quis
+                                    nisl at, laoreet sagittis est. Vivamus rhoncus tempor lacus, eget fermentum erat
+                                    sollicitudin eget. Proin rutrum lacus id sapien sollicitudin, sed aliquet augue
+                                    fringilla. Maecenas nec ultricies orci. In sapien elit, condimentum vitae varius ut,
+                                    pretium ac lacus. Integer arcu enim, blandit ac tincidunt vitae, dictum in lectus.
+                                    Maecenas semper diam in dui aliquam, ut fermentum tortor dignissim. Etiam in euismod
+                                    risus. Donec posuere libero at dolor tristique ornare. Ut et tincidunt diam.
+                                    Suspendisse erat neque, accumsan eget arcu eget, finibus tincidunt risus. Curabitur
+                                    varius dolor eget urna malesuada euismod. Ut dolor velit, pellentesque eget nibh
+                                    sed, rutrum rutrum dolor. Morbi sed nisl iaculis, bibendum ligula ut, fermentum
+                                    nunc.
+                                </p>
+                            </div>
                         </div>
                     </div>
-                    <div className="col-span-1 md:col-span-4">
-                        <img
-                            src="https://source.unsplash.com/NXiIVnzBwZ8"
-                            alt="About Me"
-                            className="w-full h-auto object-cover"
-                        />
-                    </div>
-                    <div className="col-span-1 md:col-span-7">
-                        <div className="intro">
-                            <h2 className="text-2xl md:text-4xl text-gray-900 font-medium">
-                                Jane Writer is an award-winning author and lifestyle blogger.
-                            </h2>
-                            <p className="mb-4">
-                                Crud indignant permissively through burped nodded timorous onto the as wore less ouch
-                                far rewound considering so broken dachshund jeepers sanely confident. Contemplated
-                                growled apart enthusiastically punitively much much darn onto deep dear returned some
-                                cockatoo hungrily fortuitously enchantingly ouch sanely on unceremonious especially much
-                                yikes darn.
-                            </p>
-                            <p className="mb-4">
-                                Gecko far one before ouch far indistinctly ouch much doubtfully the alas some
-                                classically far insincerely much honey close savage ground according enthusiastic and
-                                that then about realistic however more forlornly dear demonstrably a this.
-                            </p>
-                            <p>
-                                Less urgently ape one some hamster much well that dolphin strode hey underneath so eagle
-                                ouch a hey turtle notwithstanding truly censoriously congratulated dear one mandrill
-                                weak much then disconsolately wholesome.
-                            </p>
-                        </div>
-                    </div>
-                    <div className="col-span-1 md:col-span-7">
-                        <blockquote className="italic text-center w-full mx-auto flex items-center justify-center">
-                            <h3 className="text-xl md:text-2xl">
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa provident voluptatem
-                                consectetur illum, natus placeat incidunt tempora architecto aliquid recusandae eligendi
-                                repudiandae ex laborum neque quod cum id facere nulla.
-                            </h3>
-                        </blockquote>
-                    </div>
-                    <div className="col-span-1 md:col-span-5">
-                        <img
-                            src="https://source.unsplash.com/8eSrC43qdro"
-                            alt="Additional Image"
-                            className="w-full h-auto object-cover"
-                        />
-                    </div>
-                </section>
-            </div>
+                </div>
+            </section>
         </MainScrollableContainer>
     );
 };
