@@ -1,14 +1,25 @@
-import { GridProducs } from "@/shared/components/Gridproducs";
-import { Navbar } from "@/shared/components/Navbar";
+"use client";
+import { GridProducts } from "@/shared/components/GridProducts";
+import { useQueryHook } from "@/shared/hooks/useQueryHook";
+import { MainScrollableContainer } from "@/shared/layout/MainScrollableContainer";
+import { getEsculturas } from "@/shared/services/strapi/Escultura/aplication/esculturaService";
+import { IStrapiScultureAndPaints } from "@/shared/services/strapi/Escultura/domain/Escultura";
 
 export const ScultureOrganicsModule = () => {
+    const { data } = useQueryHook<string[], IStrapiScultureAndPaints[]>({
+        queryKey: ["getAllEsculturasOrganicas"],
+        queryFn: () => getEsculturas("Freschi"),
+    });
+
+    const response = data?.data || [];
+
     return (
-        <main className="w-full h-full min-h-screen bg-latorre-bg">
-            <Navbar />
-            <section className="py-32 text-white px-3 flex flex-col gap-4 sm:px-10 lg:px-28">
-                <h1 className="text-2xl font-bold">Esculturas Organicas</h1>
-               <GridProducs/>
+        <MainScrollableContainer>
+            <section className="py-32 text-white flex flex-col gap-4 relative px-3 sm:px-4 md:px-12 lg:px-24 xl:px-32 2xl:px-44">
+                <h1 className="text-2xl font-bold">Esculturas Orgánicas</h1>
+                {response.length > 0 ? <GridProducts arrayProductos={response} /> : <p>Cargando...</p>}
             </section>
-        </main>
+            <div className="h-screen"></div>
+        </MainScrollableContainer>
     );
 };

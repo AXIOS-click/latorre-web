@@ -1,4 +1,4 @@
-import { ScultureModule } from "../../modules/Sculture/index";
+import { ScultureModule } from "../../../modules/Sculture";
 export default function Esculturas() {
     return <ScultureModule />;
 }
