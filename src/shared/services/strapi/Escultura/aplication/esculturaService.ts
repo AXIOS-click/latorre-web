@@ -23,3 +23,10 @@ export const getEsculturas = async (type: "Freschi" | "Appasiti") => {
     );
     return dataReceived;
 };
+
+export const getEsculturaByID = async (id: string) => {
+    const { data: dataReceived } = await httpStrapiClient.get(
+        `${BASE_CONSTRUCED_ESCULTURAS_URL}/${id}${QUERY_CON_IMAGENES}`
+    );
+    return dataReceived;
+};

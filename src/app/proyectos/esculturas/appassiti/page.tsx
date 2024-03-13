@@ -1,7 +1,7 @@
-import { ScultureFigurativesModule } from "@/modules/Sculture/figuratives";
+import { ScultureAppassitiModule } from "@/modules/Sculture/appassiti";
 
 const EsculturaFigurativa = () => {
-    return <ScultureFigurativesModule />;
+    return <ScultureAppassitiModule />;
 };
 
 export default EsculturaFigurativa;

@@ -4,10 +4,10 @@
 
 @import "../modules/Home/index.scss";
 @import "../shared/components/index.scss";
+@import "../modules/product/index.scss";
 
 @layer base {
     :root {
         --latorre-red: #ff0000;
     }
-   
 }
