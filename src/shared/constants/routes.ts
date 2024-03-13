@@ -4,12 +4,13 @@ export enum ERoutes {
     BIOGRAFIA = "/bio",
     REDES = "/redes",
     CONTACTO = "/contacto",
-    /* Proyect - Esculturas - subRoutes */
+    /* Proyecto - Esculturas - subRutas */
     ESCULTURAS = "/proyectos/esculturas",
     ESCULTURAS_FRESCHI = "/proyectos/esculturas/freschi",
     ESCULTURAS_APPASITI = "/proyectos/esculturas/appassiti",
-
-    /* Proyect - Pinturas - subRoutes */
+    ESCULTURAS_FRESCHI_PRODUCTO = "/proyectos/esculturas/freschi/:producto",
+    ESCULTURAS_APPASITI_PRODUCTO = "/proyectos/esculturas/appassiti/:producto",
+    /* Proyecto - Pinturas - subRutas */
     PINTURAS = "/proyectos/pinturas",
     PINTURAS_ORGANICAS = "/proyectos/pinturas/organicas",
     PINTURAS_FIGURATIVAS = "/proyectos/pinturas/figurativas",
@@ -19,14 +20,16 @@ export type TActualRoutes =
     | "Home"
     | "Proyects"
     | "Bio"
-    | "Social"
-    | "Contact"
+    | "Redes"
+    | "Contacto"
     | "Esculturas"
-    | "Pinturas"
     | "Freschi"
     | "Appassiti"
-    | "Pinturas Organicas"
-    | "Pinturas Figurativas";
+    | "Freschi Producto"
+    | "Appassiti Producto"
+    | "Pinturas"
+    | "Organicas"
+    | "Figurativas";
 
 export interface IRoute {
     name: TActualRoutes;
@@ -42,18 +45,26 @@ export const ROUTES: IRoute[] = [
         name: "Esculturas",
         path: ERoutes.ESCULTURAS,
         subRoutes: [
-            { name: "Freschi", path: ERoutes.ESCULTURAS_FRESCHI },
-            { name: "Appassiti", path: ERoutes.ESCULTURAS_APPASITI },
-        ],
+            {
+                name: "Freschi",
+                path: ERoutes.ESCULTURAS_FRESCHI,
+                subRoutes: [{ name: "Freschi Producto", path: ERoutes.ESCULTURAS_FRESCHI_PRODUCTO }],
+            },
+            {
+                name: "Appassiti",
+                path: ERoutes.ESCULTURAS_APPASITI,
+                subRoutes: [{ name: "Appassiti Producto", path: ERoutes.ESCULTURAS_APPASITI_PRODUCTO }],
+            },
+        ] as IRoute[],
     },
     {
         name: "Pinturas",
         path: ERoutes.PINTURAS,
         subRoutes: [
-            { name: "Pinturas Organicas", path: ERoutes.PINTURAS_ORGANICAS },
-            { name: "Pinturas Figurativas", path: ERoutes.PINTURAS_FIGURATIVAS },
+            { name: "Organicas", path: ERoutes.PINTURAS_ORGANICAS },
+            { name: "Figurativas", path: ERoutes.PINTURAS_FIGURATIVAS },
         ],
     },
-    { name: "Contact", path: ERoutes.CONTACTO },
-    { name: "Social", path: ERoutes.REDES }
+    { name: "Contacto", path: ERoutes.CONTACTO },
+    { name: "Redes", path: ERoutes.REDES },
 ];

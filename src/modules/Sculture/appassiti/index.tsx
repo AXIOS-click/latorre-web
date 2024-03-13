@@ -1,5 +1,6 @@
 "use client";
 import { GridProducts } from "@/shared/components/GridProducts";
+import { LoadingSpinner } from "@/shared/components/Loading";
 import { useQueryHook } from "@/shared/hooks/useQueryHook";
 import { MainScrollableContainer } from "@/shared/layout/MainScrollableContainer";
 import { getEsculturas } from "@/shared/services/strapi/Escultura/aplication/esculturaService";
@@ -7,7 +8,7 @@ import { IStrapiScultureAndPaints } from "@/shared/services/strapi/Escultura/dom
 
 export const ScultureAppassitiModule = () => {
     const { data } = useQueryHook<string[], IStrapiScultureAndPaints[]>({
-        queryKey: ["getAllEsculturasFigurativas"],
+        queryKey: ["getAllEsculturasAppassiti"],
         queryFn: () => getEsculturas("Appasiti"),
     });
 
@@ -17,7 +18,7 @@ export const ScultureAppassitiModule = () => {
         <MainScrollableContainer>
             <section className="flex flex-col gap-4 relative">
                 <h1 className="text-2xl font-bold">Esculturas Appassiti</h1>
-                {response.length > 0 ? <GridProducts arrayProductos={response} /> : <p>Cargando...</p>}
+                {response.length > 0 ? <GridProducts arrayProductos={response} /> : <LoadingSpinner />}
             </section>
         </MainScrollableContainer>
     );
