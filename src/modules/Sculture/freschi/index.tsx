@@ -16,10 +16,14 @@ export const ScultureFreschiModule = () => {
 
     return (
         <MainScrollableContainer>
-            <section className="flex flex-col gap-4 relative">
-                <h1 className="text-2xl font-bold">Esculturas Freschi</h1>
-                {response.length > 0 ? <GridProducts arrayProductos={response} /> : <LoadingSpinner />}
-            </section>
+            {response.length > 0 ? (
+                <section className="flex flex-col gap-4 relative">
+                    <h1 className="text-2xl font-bold">Esculturas Freschi</h1>
+                    <GridProducts arrayProductos={response} />
+                </section>
+            ) : (
+                <LoadingSpinner />
+            )}
         </MainScrollableContainer>
     );
 };
