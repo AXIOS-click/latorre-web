@@ -3,6 +3,7 @@
 import { DAT } from "@/shared/services/strapi/Escultura/domain/Escultura";
 import { useState } from "react";
 import UseEmblaCarousel from "embla-carousel-react";
+import ReactImageMagnify from "react-image-magnify";
 
 export const ImagesGaleryComponent = ({ images }: { images: DAT[] }) => {
     const [ImageSelect, setImageSelect] = useState(images[0]?.attributes.url);
@@ -51,8 +52,21 @@ const ImagesList = ({
 
 const PreviewImage = ({ image }: { image: string }) => {
     return (
-        <div>
-            <img src={image} className="h-[600px] w-auto rounded-md" />
+        <div style={{ maxWidth: "450px" }}>
+            <ReactImageMagnify
+                {...{
+                    smallImage: {
+                        alt: "Wristwatch by Ted Baker London",
+                        isFluidWidth: true,
+                        src: image,
+                    },
+                    largeImage: {
+                        src: image,
+                        width: 1000,
+                        height: 1000,
+                    },
+                }}
+            />
         </div>
     );
 };

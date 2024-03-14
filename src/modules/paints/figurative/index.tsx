@@ -10,6 +10,8 @@ export const PaintFigurativeModule = () => {
         queryFn: () => getPinturas("Figurativo"),
     });
 
+    console.log(data);
+
     return (
         <MainScrollableContainer>
             <section className="flex flex-col gap-4 relative">

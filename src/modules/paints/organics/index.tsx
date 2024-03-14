@@ -10,6 +10,8 @@ export const PaintOrganicsModule = () => {
         queryFn: () => getPinturas("Organico"),
     });
 
+    console.log(data);
+
     return (
         <MainScrollableContainer>
             <section className="flex flex-col gap-4 relative">
