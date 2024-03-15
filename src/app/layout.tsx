@@ -2,13 +2,13 @@ import React from "react";
 import ReactQueryProvider from "@/shared/providers/ReactQueryProvider";
 import "@radix-ui/themes/styles.css";
 import "./theme-config.css";
-import "../styles/globals.scss";
 import GalaxyRenderer from "@/shared/providers/GalaxyProvider";
 import { Theme } from "@radix-ui/themes";
 import localfont from "next/font/local";
 import { Navbar } from "@/shared/components/Navbar";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Metadata } from "next";
+import "../styles/globals.scss";
 
 const ppnFont = localfont({
     src: [

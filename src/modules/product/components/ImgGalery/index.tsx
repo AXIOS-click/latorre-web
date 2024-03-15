@@ -21,7 +21,9 @@ export const ImagesGaleryComponent = ({ images }: { images: DAT[] }) => {
             </div>
 
             {/* Desktop */}
-            <div className="hidden sm:flex gap-4 justify-center">
+            <div
+                className="hidden sm:flex gap-4 justify-center"
+            >
                 <ImagesList listImages={images} changeImageSelect={setImageSelect} />
                 <PreviewImage image={ImageSelect} />
             </div>
@@ -59,12 +61,22 @@ const PreviewImage = ({ image }: { image: string }) => {
                         alt: "Wristwatch by Ted Baker London",
                         isFluidWidth: true,
                         src: image,
+                        sizes: "(max-width: 480px) 100vw, (max-width: 1200px) 30vw, 360px",
                     },
                     largeImage: {
                         src: image,
                         width: 1000,
-                        height: 1000,
+                        height: 1100,
                     },
+                    enlargedImageContainerDimensions: {
+                        width: "70%",
+                        height: "70%",
+                    },
+                    enlargedImageContainerStyle: { // esto te va a centrar el crop, si gustas lo quitas
+                       top: "50%",
+                       transform: "translateY(-50%)",
+                    },
+                    lensStyle: { backgroundColor: "rgba(0, 0, 0, 0.2)" },
                 }}
             />
         </div>

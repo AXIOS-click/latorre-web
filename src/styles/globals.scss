@@ -7,7 +7,15 @@
 @import "../modules/product/index.scss";
 
 @layer base {
+    
     :root {
         --latorre-red: #ff0000;
+    }
+    .react-slick img,
+    .slick-slide img {
+        max-width: unset;
+    }
+    img {
+        max-width: unset;
     }
 }
